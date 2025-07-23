@@ -1,136 +1,245 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8">
+<head>
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="">
-    <meta name="author" content="">
-    <link rel="shortcut icon" href="assets/ico/favicon.png">
+    <meta name="description" content="NineKiwi - Modern, multilingual, mobile-first project management for the world's construction industry. Coming soon with real-time collaboration, voice reporting, and safety tracking.">
+    <title>NineKiwi - Project Management for Construction | Coming Soon</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'kiwi-green': '#78C850',
+                        'kiwi-dark': '#3E5C2F',
+                        'kiwi-light': '#D0E8B8',
+                        'kiwi-brown': '#8C6239',
+                        'kiwi-tan': '#D9C6A3',
+                        'kiwi-gray': '#4A5568',
+                        'kiwi-black': '#1A202C',
+                    },
+                    fontFamily: {
+                        'heading': ['Space Grotesk', 'sans-serif'],
+                        'body': ['Inter', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .feature-card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .feature-card:hover {
+            transform: translateY(-5px);
+        }
+        .kiwi-shape {
+            position: absolute;
+            width: 200px;
+            height: 200px;
+            border-radius: 40% 60% 60% 40% / 60% 30% 70% 40%;
+            background: linear-gradient(135deg, rgba(120, 200, 80, 0.1) 0%, rgba(62, 92, 47, 0.2) 100%);
+            z-index: -1;
+        }
+        .hero-pattern {
+            background-image: radial-gradient(#3E5C2F 0.5px, transparent 0.5px);
+            background-size: 15px 15px;
+        }
+        .kiwi-pattern {
+            background-image: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM32 63c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm57-13c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-9-21c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM60 91c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM35 41c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM12 60c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z' fill='%2378C850' fill-opacity='0.1' fill-rule='evenodd'/%3E%3C/svg%3E");
+            opacity: 0.1;
+        }
+    </style>
+</head>
+<body class="bg-kiwi-light font-body text-kiwi-gray">
+    <!-- Background elements -->
+    <div class="kiwi-shape -top-20 -left-20"></div>
+    <div class="kiwi-shape bottom-10 right-10 rotate-45 w-40 h-40"></div>
+    
+    <!-- Header -->
+    <header class="relative z-10">
+        <nav class="container mx-auto px-4 py-6 flex justify-between items-center">
+            <div class="flex items-center space-x-2">
+                <img src="logo.png" alt="NineKiwi Logo" class="h-12 w-12">
+                <span class="text-2xl font-heading font-bold text-kiwi-dark">nine<span class="text-kiwi-green">kiwi</span></span>
+            </div>
+            <div>
+                <button class="bg-kiwi-green hover:bg-kiwi-dark text-white font-bold py-2 px-6 rounded-full transition duration-300" onclick="window.location.href='mailto:hello@ninekiwi.com?subject=Early%20Access%20Request'">
+                    Get Early Access
+                </button>
+            </div>
+        </nav>
+    </header>
 
-    <title>NineKiwi</title>
+    <!-- Hero Section -->
+    <section class="relative py-16 md:py-24">
+        <div class="kiwi-pattern absolute inset-0 z-0"></div>
+        <div class="container mx-auto px-4 relative z-10">
+            <div class="max-w-3xl mx-auto text-center">
+                <h1 class="text-4xl md:text-6xl font-heading font-bold text-kiwi-dark mb-6">
+                    Project Management for the <span class="text-kiwi-green">Real World</span>
+                </h1>
+                <p class="text-xl md:text-2xl text-kiwi-gray mb-10">
+                    Modern, multilingual, mobile-first project management built for the world's diverse construction ecosystem.
+                </p>
+                <div class="flex flex-col sm:flex-row justify-center gap-4">
+                    <button class="bg-kiwi-green hover:bg-kiwi-dark text-white font-bold py-3 px-8 rounded-full text-lg transition duration-300" onclick="window.location.href='mailto:hello@ninekiwi.com?subject=Early%20Access%20Request'">
+                        Join Waitlist
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
 
-    <!-- Bootstrap core CSS -->
-    <link href="assets/css/bootstrap.css" rel="stylesheet">
+    <!-- Features Section -->
+    <section class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <h2 class="text-3xl md:text-4xl font-heading font-bold text-kiwi-dark mb-4">
+                    Trying to Build it for the <br> Realities of Global Work Sites
+                </h2>
+                <p class="text-xl text-kiwi-gray">
+                    Combining cutting-edge technology with practical solutions for construction teams worldwide.
+                </p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Feature 1 -->
+                <div class="feature-card bg-gradient-to-br from-white to-kiwi-light rounded-2xl p-8 shadow-lg border border-kiwi-tan">
+                    <div class="text-kiwi-green mb-4">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4" />
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-bold text-kiwi-dark mb-2">Works Offline</h3>
+                    <p class="text-kiwi-gray">Network issues on site won't stop productivity. Sync when back online.</p>
+                </div>
+                
+                <!-- Feature 2 -->
+                <div class="feature-card bg-gradient-to-br from-white to-kiwi-light rounded-2xl p-8 shadow-lg border border-kiwi-tan">
+                    <div class="text-kiwi-green mb-4">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5h12M9 3v2m1.048 9.5A18.022 18.022 0 016.412 9m6.088 9h7M11 21l5-10 5 10M12.751 5C11.783 10.77 8.07 15.61 3 18.129" />
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-bold text-kiwi-dark mb-2">Multilingual Support</h3>
+                    <p class="text-kiwi-gray">Break language barriers with real-time translation for diverse workforces.</p>
+                </div>
+                
+                <!-- Feature 3 -->
+                <div class="feature-card bg-gradient-to-br from-white to-kiwi-light rounded-2xl p-8 shadow-lg border border-kiwi-tan">
+                    <div class="text-kiwi-green mb-4">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11a7 7 0 01-7 7m0 0a7 7 0 01-7-7m7 7v4m0 0H8m4 0h4m-4-8a3 3 0 01-3-3V5a3 3 0 116 0v6a3 3 0 01-3 3z" />
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-bold text-kiwi-dark mb-2">Voice-to-Text Reports</h3>
+                    <p class="text-kiwi-gray">Faster than typing - dictate reports on site with voice recognition.</p>
+                </div>
+                
+                <!-- Feature 4 -->
+                <div class="feature-card bg-gradient-to-br from-white to-kiwi-light rounded-2xl p-8 shadow-lg border border-kiwi-tan">
+                    <div class="text-kiwi-green mb-4">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2V9z" />
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 22V12h6v10" />
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-bold text-kiwi-dark mb-2">Photo Evidence with GPS</h3>
+                    <p class="text-kiwi-gray">Geotagged photos provide trust and transparency for clients and teams.</p>
+                </div>
+                
+                <!-- Feature 5 -->
+                <div class="feature-card bg-gradient-to-br from-white to-kiwi-light rounded-2xl p-8 shadow-lg border border-kiwi-tan">
+                    <div class="text-kiwi-green mb-4">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-bold text-kiwi-dark mb-2">Cost-efficient SaaS</h3>
+                    <p class="text-kiwi-gray">Easy for small contractors to adopt with flexible pricing plans.</p>
+                </div>
+                
+                <!-- Feature 6 -->
+                <div class="feature-card bg-gradient-to-br from-white to-kiwi-light rounded-2xl p-8 shadow-lg border border-kiwi-tan">
+                    <div class="text-kiwi-green mb-4">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-bold text-kiwi-dark mb-2">Real-time Collaboration</h3>
+                    <p class="text-kiwi-gray">Project managers get instant updates from site teams as work progresses.</p>
+                </div>
+            </div>
+        </div>
+    </section>
 
-    <!-- Custom styles for this template -->
-    <link href="assets/css/main.css" rel="stylesheet">
-	<link rel="stylesheet" href="assets/css/font-awesome.min.css">
+    <!-- CTA Section -->
+    <section class="py-20 hero-pattern">
+        <div class="container mx-auto px-4">
+            <div class="max-w-4xl mx-auto bg-kiwi-dark rounded-3xl p-8 md:p-12 text-center">
+                <h2 class="text-3xl md:text-4xl font-heading font-bold text-white mb-4">
+                    Ready to Transform Your Construction Projects?
+                </h2>
+                <p class="text-xl text-kiwi-light mb-8">
+                    Join our waitlist to be among the first to experience NineKiwi.
+                </p>
+                
+                <div class="max-w-xl mx-auto">
+    <div class="flex flex-col sm:flex-row gap-4">
+        <a 
+            href="mailto:hello@ninekiwi.com?subject=Early%20Access%20Request" 
+            class="bg-kiwi-green hover:bg-kiwi-light text-kiwi-dark font-bold px-8 py-4 rounded-full transition duration-300 text-center"
+        >
+            Click here to mail us for early access
+        </a>
+    </div>
+</div>
 
-    <script src="assets/js/jquery.min.js"></script>
-	<script src="assets/js/modernizr.custom.js"></script>
-	
+                
+                <div class="mt-8 flex flex-col md:flex-row justify-center items-center gap-4 text-kiwi-tan">
+                    <div class="flex items-center">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                        </svg>
+                        <span>No credit card required</span>
+                    </div>
+                    <div class="hidden md:block">•</div>
+                    <div class="flex items-center">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                        </svg>
+                        <span>Exclusive launch discounts</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-	
-    <link href='http://fonts.googleapis.com/css?family=Oswald:400,300,700' rel='stylesheet' type='text/css'>
-    <link href='http://fonts.googleapis.com/css?family=EB+Garamond' rel='stylesheet' type='text/css'>
-
-    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!--[if lt IE 9]>
-      <script src="assets/js/html5shiv.js"></script>
-      <script src="assets/js/respond.min.js"></script>
-    <![endif]-->
-  </head>
-
-  <body data-spy="scroll" data-offset="0" data-target="#theMenu">
-		
-
-
-	
-	<!-- ========== HEADER SECTION ========== -->
-	<section id="home" name="home"></section>
-	<div id="headerwrap">
-		<div class="container">
-			<br>
-			<div class="row">
-				<h1>Welcome to NineKiwi.com</h1>
-				<br>
-				<h3>We are coming soon !</h3>
-				<br>
-				<br>
-				<div class="col-lg-6 col-lg-offset-3">
-				</div>
-			</div>
-		</div><!-- /container -->
-	</div><!-- /headerwrap -->
-	
-	
-	
-	<!-- ========== ABOUT SECTION ========== -->
-	<section id="about" name="about"></section>
-	<div id="f">
-		<div class="container">
-			<div class="row">
-				<h3>Welcome to NineKiwi.com - Your Solution for Construction Inspection</h3>
-				<p class="centered"><i class="icon icon-circle"></i><i class="icon icon-circle"></i><i class="icon icon-circle"></i></p>
-				
-				<!-- INTRO INFORMATIO-->
-				<div class="col-lg-6 col-lg-offset-3">
-					<p> At NineKiwi.com, we're dedicated to revolutionizing the way construction inspections are conducted. We're thrilled to announce that we're coming soon with a groundbreaking construction inspection and survey tool designed to streamline your inspection processes and enhance safety on your construction sites.</p>
-				</div>								
-			</div>
-		</div><!-- /container -->
-	</div><!-- /f -->
-	
-
-	<!-- ========== CAROUSEL SECTION ========== -->	
-	<section id="portfolio" name="portfolio"></section>
-	<div id="f">
-		<div class="container">
-			<div class="row centered">
-				<h3>Stay Tuned for Updates:</h3>
-				<p class="centered"><i class="icon icon-circle"></i><i class="icon icon-circle"></i><i class="icon icon-circle"></i></p>
-				
-				<div class="col-lg-6 col-lg-offset-3">
-					<div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
-						<!-- Wrapper for slides -->
-						<div class="carousel-inner">
-							<div class="item active centered">
-								<img class="img-responsive" src="assets/img/c1.png" alt="">
-							</div>
-							<div class="item centered">
-								<img class="img-responsive" src="assets/img/c1.png" alt="">
-							</div>
-							<div class="item centered">
-								<img class="img-responsive" src="assets/img/c1.png" alt="">
-							</div>
-						</div>
-						<br>
-						<br>
-						<ol class="carousel-indicators">
-						    <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
-						    <li data-target="#carousel-example-generic" data-slide-to="1"></li>
-						    <li data-target="#carousel-example-generic" data-slide-to="2"></li>
-						</ol>
-					</div>
-				</div><!-- col-lg-8 -->
-			</div><!-- row -->
-		</div><!-- container -->
-	</div>	<!-- f -->
-
-	<!-- ========== Error SECTION ========== -->
-	<section id="contact" name="contact"></section>
-	<div id="f">
-		<div class="container">
-			<div class="row">
-				
-				
-				<div class="col-lg-6 col-lg-offset-3">
-					<p>For more details, Contact:</p>
-					<a href="mailto:hello@ninekiwi.com">
-						<button type="button">Send Email</button>
-					  </a>
-				</div>
-			</div>
-		</div>
-	</div>
-
-
-    <!-- Bootstrap core JavaScript
-    ================================================== -->
-    <!-- Placed at the end of the document so the pages load faster -->
-	<script src="assets/js/classie.js"></script>
-    <script src="assets/js/bootstrap.min.js"></script>
-    <script src="assets/js/smoothscroll.js"></script>
-	<script src="assets/js/main.js"></script>
+    <!-- Footer -->
+    <footer class="bg-kiwi-black text-kiwi-light py-12">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="flex items-center space-x-2 mb-6 md:mb-0">
+                    <img src="logo.png" alt="NineKiwi Logo" class="h-10 w-10">
+                    <span class="text-2xl font-heading font-bold text-white">nine<span class="text-kiwi-green">kiwi</span></span>
+                </div>
+                
+                <div class="text-center">
+                    <p class="text-kiwi-tan">
+                        © 2025 NineKiwi. All rights reserved. 
+                        <span class="block mt-2 text-kiwi-gray text-sm">
+                            Currently in development - our team is busy learning Flutter and improving our social skills!
+                        </span>
+                    </p>
+                </div>
+                
+                
+            </div>
+        </div>
+    </footer>
 </body>
 </html>
