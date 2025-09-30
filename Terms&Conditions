@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Terms and Conditions for NineKiwi - Project Management Platform">
+  <title>Terms & Conditions | NineKiwi</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-kiwi-light font-body text-kiwi-gray">
+  <div class="max-w-4xl mx-auto py-16 px-6">
+    <h1 class="text-4xl font-heading font-bold text-kiwi-dark mb-6">Terms & Conditions</h1>
+    <p class="mb-8 text-sm text-kiwi-gray">Last updated: September 30, 2025</p>
+
+    <section class="mb-8">
+      <h2 class="text-2xl font-semibold text-kiwi-dark mb-4">1. Introduction</h2>
+      <p>Welcome to <strong>NineKiwi</strong>, a project management platform designed for the construction industry. By accessing or using our website, platform, and services, you agree to these Terms and Conditions. If you do not agree, please discontinue use immediately.</p>
+    </section>
+
+    <section class="mb-8">
+      <h2 class="text-2xl font-semibold text-kiwi-dark mb-4">2. Eligibility</h2>
+      <p>You must be at least 18 years old and legally capable of entering into contracts to use our services. By registering, you confirm that the information you provide is accurate and complete.</p>
+    </section>
+
+    <section class="mb-8">
+      <h2 class="text-2xl font-semibold text-kiwi-dark mb-4">3. Payments</h2>
+      <p>We use <strong>Razorpay</strong> as our trusted third-party payment gateway. By making a payment on NineKiwi, you agree to Razorpay’s terms and privacy policies in addition to ours.</p>
+      <ul class="list-disc list-inside mt-2 space-y-1">
+        <li>All payments must be made in INR (Indian Rupees) unless otherwise stated.</li>
+        <li>We do not store your credit card, debit card, or net banking details. All transactions are securely processed by Razorpay.</li>
+        <li>Subscriptions, invoices, and refunds (if applicable) will be managed according to our refund policy and Razorpay’s process.</li>
+      </ul>
+    </section>
+
+    <section class="mb-8">
+      <h2 class="text-2xl font-semibold text-kiwi-dark mb-4">4. Use of Services</h2>
+      <p>You agree not to misuse the platform, attempt unauthorized access, or engage in any activity that may disrupt the system. Accounts found violating these terms may be suspended or terminated.</p>
+    </section>
+
+    <section class="mb-8">
+      <h2 class="text-2xl font-semibold text-kiwi-dark mb-4">5. Intellectual Property</h2>
+      <p>All content, trademarks, logos, and designs on NineKiwi are the property of NineKiwi. Unauthorized use, reproduction, or distribution of our materials is prohibited.</p>
+    </section>
+
+    <section class="mb-8">
+      <h2 class="text-2xl font-semibold text-kiwi-dark mb-4">6. Limitation of Liability</h2>
+      <p>NineKiwi is provided on an "as-is" basis. We are not liable for damages, data loss, or business interruptions caused by using our platform. Users are responsible for backing up their project data.</p>
+    </section>
+
+    <section class="mb-8">
+      <h2 class="text-2xl font-semibold text-kiwi-dark mb-4">7. Privacy</h2>
+      <p>Your data is handled according to our <a href="/privacy-policy" class="text-kiwi-green hover:underline">Privacy Policy</a>. By using NineKiwi, you consent to data collection and processing as described in that policy.</p>
+    </section>
+
+    <section class="mb-8">
+      <h2 class="text-2xl font-semibold text-kiwi-dark mb-4">8. Termination</h2>
+      <p>We reserve the right to suspend or terminate accounts that violate these terms, misuse services, or engage in fraudulent activities.</p>
+    </section>
+
+    <section class="mb-8">
+      <h2 class="text-2xl font-semibold text-kiwi-dark mb-4">9. Governing Law</h2>
+      <p>These Terms shall be governed by and construed under the laws of India. Any disputes will be subject to the exclusive jurisdiction of the courts of India.</p>
+    </section>
+
+    <section>
+      <h2 class="text-2xl font-semibold text-kiwi-dark mb-4">10. Contact Us</h2>
+      <p>If you have any questions about these Terms, please contact us at:</p>
+      <p class="mt-2 font-medium">📧 hello@ninekiwi.com</p>
+      <p class="font-medium">🏢 NineKiwi.com, India</p>
+    </section>
+  </div>
+</body>
+</html>
