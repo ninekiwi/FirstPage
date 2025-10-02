@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ninekiwi Payments</title>
+  <!-- Tailwind CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gradient-to-br from-gray-900 via-black to-gray-900 text-white min-h-screen flex flex-col font-sans">
+
+  <!-- Header -->
+  <header class="w-full bg-black/40 backdrop-blur sticky top-0 z-10 border-b border-gray-800">
+    <div class="max-w-6xl mx-auto flex justify-between items-center px-6 py-4">
+      <a href="https://ninekiwi.com" class="text-2xl font-extrabold tracking-wide text-purple-500 hover:text-purple-400 transition">
+        NINEKIWI 𝒫𝒶𝓎𝓂𝑒𝓃𝓉𝓈
+      </a>
+      <nav>
+        <a href="https://ninekiwi.com" target="_blank"
+           class="px-4 py-2 rounded-lg bg-gradient-to-r from-purple-500 to-indigo-600 hover:from-purple-600 hover:to-indigo-700 transition font-semibold">
+          Visit Main Site
+        </a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main class="flex-grow flex items-center justify-center px-4">
+    <div class="bg-black/40 backdrop-blur-md shadow-xl rounded-2xl p-8 max-w-md w-full text-center border border-gray-800">
+      <h1 class="text-3xl font-extrabold mb-4 text-purple-500 tracking-wide uppercase">Ninekiwi Payments</h1>
+      <p class="mb-6 text-gray-400">Enter the amount you want to pay or choose a quick option:</p>
+
+      <!-- Custom Amount Input -->
+      <input type="number" id="amountInput" placeholder="Enter amount"
+        class="p-3 rounded-lg text-black w-full text-center mb-4 focus:outline-none focus:ring-2 focus:ring-purple-500" />
+
+      <!-- Quick Amount Buttons -->
+      <div class="flex gap-3 mb-6 justify-center">
+        <button class="bg-gradient-to-r from-purple-500 to-indigo-600 hover:from-purple-600 hover:to-indigo-700 px-4 py-2 rounded-lg font-semibold" onclick="setAmount(9)">9</button>
+        <button class="bg-gradient-to-r from-purple-500 to-indigo-600 hover:from-purple-600 hover:to-indigo-700 px-4 py-2 rounded-lg font-semibold" onclick="setAmount(99)">99</button>
+        <button class="bg-gradient-to-r from-purple-500 to-indigo-600 hover:from-purple-600 hover:to-indigo-700 px-4 py-2 rounded-lg font-semibold" onclick="setAmount(999)">999</button>
+      </div>
+
+      <!-- Currency Selector -->
+      <select id="currencySelect"
+        class="p-3 rounded-lg text-black mb-6 w-full focus:outline-none focus:ring-2 focus:ring-purple-500">
+        <option value="INR">₹ INR</option>
+        <option value="USD">$ USD</option>
+      </select>
+
+      <!-- Pay Button -->
+      <button id="payBtn"
+        class="w-full bg-gradient-to-r from-purple-500 to-indigo-600 hover:from-purple-600 hover:to-indigo-700 px-6 py-3 rounded-lg font-bold text-lg tracking-wide transition">
+        PAY NOW
+      </button>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="bg-black/40 backdrop-blur py-6 text-center text-gray-500 text-sm border-t border-gray-800">
+    <p>© <span id="year"></span> Ninekiwi. All rights reserved.</p>
+    <p>
+      <a href="https://ninekiwi.com" target="_blank" class="text-purple-500 hover:text-purple-400">Visit ninekiwi.com</a>
+    </p>
+  </footer>
+
+  <!-- Razorpay Script -->
+  <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+  <script>
+    function setAmount(val) {
+      document.getElementById("amountInput").value = val;
+    }
+
+    document.getElementById("payBtn").onclick = function () {
+      const amount = document.getElementById("amountInput").value;
+      const currency = document.getElementById("currencySelect").value;
+
+      if (!amount || amount <= 0) {
+        alert("Please enter a valid amount.");
+        return;
+      }
+
+      var options = {
+        key: "rzp_test_RNoEvxvW9CEne9", // Replace with your Razorpay Key ID
+        amount: amount * 100,
+        currency: currency,
+        name: "Ninekiwi Payments",
+        description: "Custom Payment",
+        handler: function (response){
+          alert("Payment successful! Payment ID: " + response.razorpay_payment_id);
+        },
+        prefill: {
+          name: "Customer Name",
+          email: "customer@example.com",
+          contact: "9876543210"
+        },
+        theme: {
+          color: "#8b5cf6"
+        }
+      };
+
+      var rzp1 = new Razorpay(options);
+      rzp1.open();
+    }
+
+    // Auto-update footer year
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
+
