@@ -70,6 +70,31 @@
         .animated-element {
             opacity: 0;
         }
+        
+        /* Mobile menu styles */
+        .mobile-menu {
+            transition: all 0.3s ease;
+            transform: translateY(-100%);
+            opacity: 0;
+            visibility: hidden;
+        }
+        .mobile-menu.active {
+            transform: translateY(0);
+            opacity: 1;
+            visibility: visible;
+        }
+        
+        /* Mobile-specific adjustments */
+        @media (max-width: 768px) {
+            .kiwi-shape {
+                width: 150px;
+                height: 150px;
+            }
+            .kiwi-shape.bottom-10.right-10 {
+                bottom: 5%;
+                right: 5%;
+            }
+        }
     </style>
 </head>
 
@@ -79,86 +104,105 @@
     <div class="kiwi-shape bottom-10 right-10 rotate-45 w-40 h-40"></div>
 
     <header class="relative z-20">
-    <nav class="container mx-auto px-6 py-5 flex justify-between items-center">
-        <a href="#" class="flex items-center space-x-3">
-            <img src="logo.png" alt="NineKiwi Logo" class="h-10 w-10 md:h-12 md:w-12">
-            <span class="text-2xl font-heading font-bold text-kiwi-dark">nine<span class="text-kiwi-green">kiwi</span></span>
-        </a>
-        <div class="hidden md:flex items-center space-x-4">
-            <a href="https://reportninekiwi.web.app/" class="border-2 border-kiwi-green text-kiwi-green hover:bg-kiwi-green hover:text-white font-bold py-2 px-6 rounded-full transition duration-300">
-                Free Report Tool
+        <nav class="container mx-auto px-4 sm:px-6 py-4 sm:py-5 flex justify-between items-center">
+            <a href="#" class="flex items-center space-x-2 sm:space-x-3">
+                <img src="logo.png" alt="NineKiwi Logo" class="h-8 w-8 sm:h-10 sm:w-10 md:h-12 md:w-12">
+                <span class="text-xl sm:text-2xl font-heading font-bold text-kiwi-dark">nine<span class="text-kiwi-green">kiwi</span></span>
             </a>
-            <a href="Payments.html" class="border-2 border-kiwi-green text-kiwi-green hover:bg-kiwi-green hover:text-white font-bold py-2 px-6 rounded-full transition duration-300">
-                NineKiwi Payments
-            </a>
-            <a href="mailto:hello@ninekiwi.com?subject=Early%20Access%20Request" class="bg-kiwi-green hover:bg-kiwi-dark text-white font-bold py-2 px-6 rounded-full transition duration-300">
-                Get Early Access
-            </a>
+            
+            <!-- Desktop Navigation -->
+            <div class="hidden md:flex items-center space-x-4">
+                <a href="https://reportninekiwi.web.app/" class="border-2 border-kiwi-green text-kiwi-green hover:bg-kiwi-green hover:text-white font-bold py-2 px-4 sm:px-6 rounded-full transition duration-300 text-sm sm:text-base">
+                    Free Report Tool
+                </a>
+                <a href="Payments.html" class="border-2 border-kiwi-green text-kiwi-green hover:bg-kiwi-green hover:text-white font-bold py-2 px-4 sm:px-6 rounded-full transition duration-300 text-sm sm:text-base">
+                    NineKiwi Payments
+                </a>
+                <a href="mailto:hello@ninekiwi.com?subject=Early%20Access%20Request" class="bg-kiwi-green hover:bg-kiwi-dark text-white font-bold py-2 px-4 sm:px-6 rounded-full transition duration-300 text-sm sm:text-base">
+                    Get Early Access
+                </a>
+            </div>
+            
+            <!-- Mobile Navigation Toggle -->
+            <div class="md:hidden flex items-center space-x-2">
+                <button id="mobile-menu-toggle" class="text-kiwi-dark focus:outline-none">
+                    <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                    </svg>
+                </button>
+            </div>
+        </nav>
+        
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="mobile-menu fixed inset-0 bg-white z-30 pt-20 px-6 pb-8 md:hidden">
+            <div class="flex flex-col space-y-6">
+                <a href="https://reportninekiwi.web.app/" class="border-2 border-kiwi-green text-kiwi-green hover:bg-kiwi-green hover:text-white font-bold py-3 px-6 rounded-full transition duration-300 text-center">
+                    Free Report Tool
+                </a>
+                <a href="Payments.html" class="border-2 border-kiwi-green text-kiwi-green hover:bg-kiwi-green hover:text-white font-bold py-3 px-6 rounded-full transition duration-300 text-center">
+                    NineKiwi Payments
+                </a>
+                <a href="mailto:hello@ninekiwi.com?subject=Early%20Access%20Request" class="bg-kiwi-green hover:bg-kiwi-dark text-white font-bold py-3 px-6 rounded-full transition duration-300 text-center">
+                    Get Early Access
+                </a>
+            </div>
+            <button id="mobile-menu-close" class="absolute top-6 right-6 text-kiwi-dark">
+                <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                </svg>
+            </button>
         </div>
-        <div class="md:hidden flex items-center space-x-2">
-            <a href="https://reportninekiwi.web.app/" class="border border-kiwi-green text-kiwi-green font-semibold py-2 px-3 rounded-full text-sm transition-colors duration-300 hover:bg-kiwi-green hover:text-white">
-                Report Tool
-            </a>
-            <a href="Payments.html" class="border border-kiwi-green text-kiwi-green font-semibold py-2 px-3 rounded-full text-sm transition-colors duration-300 hover:bg-kiwi-green hover:text-white">
-                Payments
-            </a>
-            <a href="mailto:hello@ninekiwi.com?subject=Early%20Access%20Request" class="bg-kiwi-green text-white font-bold py-2 px-3 rounded-full text-sm transition-colors duration-300 hover:bg-kiwi-dark">
-                Join Waitlist
-            </a>
-        </div>
-    </nav>
-</header>
-
+    </header>
 
     <main>
-        <section class="relative py-20 md:py-28">
+        <section class="relative py-16 md:py-28">
             <div class="hero-pattern absolute inset-0 z-0 opacity-50"></div>
-            <div class="container mx-auto px-6 relative z-10 text-center">
+            <div class="container mx-auto px-4 sm:px-6 relative z-10 text-center">
                 <div class="max-w-4xl mx-auto animated-element">
-                    <h1 class="text-4xl md:text-6xl font-heading font-extrabold text-kiwi-dark mb-6 leading-tight">
+                    <h1 class="text-3xl sm:text-4xl md:text-6xl font-heading font-extrabold text-kiwi-dark mb-4 sm:mb-6 leading-tight">
                         Project Management for the <span class="text-kiwi-green">Real World</span>
                     </h1>
-                    <p class="text-lg md:text-xl text-kiwi-gray max-w-2xl mx-auto mb-10">
+                    <p class="text-base sm:text-lg md:text-xl text-kiwi-gray max-w-2xl mx-auto mb-8 sm:mb-10">
                         Modern, multilingual, mobile-first project management built for the world's diverse construction ecosystem.
                     </p>
-                    <a href="mailto:hello@ninekiwi.com?subject=Early%20Access%20Request" class="inline-block bg-kiwi-green hover:bg-kiwi-dark text-white font-bold py-4 px-10 rounded-full text-lg transition duration-300 transform hover:scale-105 shadow-lg">
+                    <a href="mailto:hello@ninekiwi.com?subject=Early%20Access%20Request" class="inline-block bg-kiwi-green hover:bg-kiwi-dark text-white font-bold py-3 px-8 sm:py-4 sm:px-10 rounded-full text-base sm:text-lg transition duration-300 transform hover:scale-105 shadow-lg">
                         Join Waitlist
                     </a>
                 </div>
             </div>
         </section>
 
-        <section class="py-16 md:py-24 bg-white">
-            <div class="container mx-auto px-6">
-                <div class="report-card-gradient rounded-3xl shadow-2xl overflow-hidden">
-                    <div class="grid grid-cols-1 md:grid-cols-2 items-center gap-8 md:gap-12 p-8 md:p-16">
-                        <div class="text-white z-10 animated-element">
-                            <h2 class="text-3xl md:text-4xl font-heading font-bold mb-4">Free Report Generator</h2>
-                            <p class="text-lg text-kiwi-light mb-6">
+        <section class="py-12 md:py-24 bg-white">
+            <div class="container mx-auto px-4 sm:px-6">
+                <div class="report-card-gradient rounded-2xl md:rounded-3xl shadow-2xl overflow-hidden">
+                    <div class="grid grid-cols-1 md:grid-cols-2 items-center gap-6 md:gap-12 p-6 md:p-16">
+                        <div class="text-white z-10 animated-element order-2 md:order-1">
+                            <h2 class="text-2xl sm:text-3xl md:text-4xl font-heading font-bold mb-4">Free Report Generator</h2>
+                            <p class="text-base sm:text-lg text-kiwi-light mb-6">
                                 Instantly generate professional PDF reports for your construction projects. No sign-up required.
                             </p>
-                            <ul class="space-y-4 mb-8">
-                                <li class="flex items-center gap-3"><svg class="h-6 w-6 text-kiwi-light flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg> Create professional inspection reports</li>
-                                <li class="flex items-center gap-3"><svg class="h-6 w-6 text-kiwi-light flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg> Add photos and notes directly from site</li>
-                                <li class="flex items-center gap-3"><svg class="h-6 w-6 text-kiwi-light flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg> 100% free with unlimited usage</li>
+                            <ul class="space-y-3 sm:space-y-4 mb-6 sm:mb-8">
+                                <li class="flex items-center gap-3 text-sm sm:text-base"><svg class="h-5 w-5 sm:h-6 sm:w-6 text-kiwi-light flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg> Create professional inspection reports</li>
+                                <li class="flex items-center gap-3 text-sm sm:text-base"><svg class="h-5 w-5 sm:h-6 sm:w-6 text-kiwi-light flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg> Add photos and notes directly from site</li>
+                                <li class="flex items-center gap-3 text-sm sm:text-base"><svg class="h-5 w-5 sm:h-6 sm:w-6 text-kiwi-light flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg> 100% free with unlimited usage</li>
                             </ul>
-                            <a href="https://reportninekiwi.web.app/" class="bg-white text-kiwi-dark hover:bg-kiwi-light font-bold py-3 px-8 rounded-full text-lg transition duration-300 transform hover:scale-105 w-fit">
+                            <a href="https://reportninekiwi.web.app/" class="bg-white text-kiwi-dark hover:bg-kiwi-light font-bold py-3 px-6 sm:py-3 sm:px-8 rounded-full text-base sm:text-lg transition duration-300 transform hover:scale-105 w-full sm:w-fit text-center block sm:inline-block">
                                 Try The Tool
                             </a>
                         </div>
                         
-                        <div class="relative h-full flex items-center justify-center animated-element">
-                            <div class="w-full max-w-xs p-3 bg-kiwi-black rounded-3xl shadow-2xl">
-                                <div class="bg-white rounded-2xl p-4 space-y-3 h-96 overflow-y-auto">
-                                    <p class="font-bold text-kiwi-dark">NineKiwi Report Generator</p>
-                                     <div class="h-12 bg-kiwi-light rounded-lg"></div>
-                                     <div class="h-16 bg-kiwi-light rounded-lg"></div>
-                                     <div class="bg-kiwi-light h-20 rounded-lg flex items-center justify-center text-sm text-kiwi-gray">Photo Upload</div>
+                        <div class="relative h-full flex items-center justify-center animated-element order-1 md:order-2 mb-6 md:mb-0">
+                            <div class="w-full max-w-xs p-3 bg-kiwi-black rounded-2xl md:rounded-3xl shadow-2xl">
+                                <div class="bg-white rounded-xl md:rounded-2xl p-4 space-y-3 h-80 sm:h-96 overflow-y-auto">
+                                    <p class="font-bold text-kiwi-dark text-sm sm:text-base">NineKiwi Report Generator</p>
+                                     <div class="h-10 sm:h-12 bg-kiwi-light rounded-lg"></div>
+                                     <div class="h-14 sm:h-16 bg-kiwi-light rounded-lg"></div>
+                                     <div class="bg-kiwi-light h-16 sm:h-20 rounded-lg flex items-center justify-center text-xs sm:text-sm text-kiwi-gray">Photo Upload</div>
                                     <div class="space-y-1">
                                        <div class="h-3 bg-kiwi-light rounded-full w-full"></div>
                                        <div class="h-3 bg-kiwi-light rounded-full w-5/6"></div>
                                     </div>
-                                     <div class="bg-kiwi-green text-white text-center py-2 rounded-lg font-semibold">Generate PDF</div>
+                                     <div class="bg-kiwi-green text-white text-center py-2 rounded-lg font-semibold text-sm sm:text-base">Generate PDF</div>
                                 </div>
                             </div>
                         </div>
@@ -167,95 +211,95 @@
             </div>
         </section>
 
-        <section class="py-16 md:py-24 bg-kiwi-light">
-            <div class="container mx-auto px-6">
-                <div class="text-center max-w-3xl mx-auto mb-16 animated-element">
-                    <h2 class="text-3xl md:text-4xl font-heading font-bold text-kiwi-dark mb-4">
+        <section class="py-12 md:py-24 bg-kiwi-light">
+            <div class="container mx-auto px-4 sm:px-6">
+                <div class="text-center max-w-3xl mx-auto mb-12 md:mb-16 animated-element">
+                    <h2 class="text-2xl sm:text-3xl md:text-4xl font-heading font-bold text-kiwi-dark mb-4">
                         Built for the Realities of Global Work Sites
                     </h2>
-                    <p class="text-lg md:text-xl text-kiwi-gray">
+                    <p class="text-base sm:text-lg md:text-xl text-kiwi-gray">
                         Combining cutting-edge technology with practical solutions for construction teams worldwide.
                     </p>
                 </div>
                 
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                    <div class="group feature-card bg-white rounded-2xl p-8 shadow-lg border border-gray-200 animated-element">
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
+                    <div class="group feature-card bg-white rounded-xl md:rounded-2xl p-6 md:p-8 shadow-lg border border-gray-200 animated-element">
                         <div class="text-kiwi-green mb-4 transition-colors duration-300 group-hover:text-kiwi-dark">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4" /></svg>
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10 sm:h-12 sm:w-12" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4" /></svg>
                         </div>
-                        <h3 class="text-xl font-bold text-kiwi-dark mb-2">Works Offline</h3>
-                        <p class="text-kiwi-gray">Network issues on site won't stop productivity. Sync when you're back online.</p>
+                        <h3 class="text-lg sm:text-xl font-bold text-kiwi-dark mb-2">Works Offline</h3>
+                        <p class="text-kiwi-gray text-sm sm:text-base">Network issues on site won't stop productivity. Sync when you're back online.</p>
                     </div>
 
-                    <div class="group feature-card bg-white rounded-2xl p-8 shadow-lg border border-gray-200 animated-element" style="animation-delay: 0.1s;">
+                    <div class="group feature-card bg-white rounded-xl md:rounded-2xl p-6 md:p-8 shadow-lg border border-gray-200 animated-element" style="animation-delay: 0.1s;">
                          <div class="text-kiwi-green mb-4 transition-colors duration-300 group-hover:text-kiwi-dark">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5h12M9 3v2m1.048 9.5A18.022 18.022 0 016.412 9m6.088 9h7M11 21l5-10 5 10M12.751 5C11.783 10.77 8.07 15.61 3 18.129" /></svg>
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10 sm:h-12 sm:w-12" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5h12M9 3v2m1.048 9.5A18.022 18.022 0 016.412 9m6.088 9h7M11 21l5-10 5 10M12.751 5C11.783 10.77 8.07 15.61 3 18.129" /></svg>
                         </div>
-                        <h3 class="text-xl font-bold text-kiwi-dark mb-2">Multilingual Support</h3>
-                        <p class="text-kiwi-gray">Break language barriers with real-time translation for diverse workforces.</p>
+                        <h3 class="text-lg sm:text-xl font-bold text-kiwi-dark mb-2">Multilingual Support</h3>
+                        <p class="text-kiwi-gray text-sm sm:text-base">Break language barriers with real-time translation for diverse workforces.</p>
                     </div>
 
-                    <div class="group feature-card bg-white rounded-2xl p-8 shadow-lg border border-gray-200 animated-element" style="animation-delay: 0.2s;">
+                    <div class="group feature-card bg-white rounded-xl md:rounded-2xl p-6 md:p-8 shadow-lg border border-gray-200 animated-element" style="animation-delay: 0.2s;">
                         <div class="text-kiwi-green mb-4 transition-colors duration-300 group-hover:text-kiwi-dark">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11a7 7 0 01-7 7m0 0a7 7 0 01-7-7m7 7v4m0 0H8m4 0h4m-4-8a3 3 0 01-3-3V5a3 3 0 116 0v6a3 3 0 01-3 3z" /></svg>
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10 sm:h-12 sm:w-12" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11a7 7 0 01-7 7m0 0a7 7 0 01-7-7m7 7v4m0 0H8m4 0h4m-4-8a3 3 0 01-3-3V5a3 3 0 116 0v6a3 3 0 01-3 3z" /></svg>
                         </div>
-                        <h3 class="text-xl font-bold text-kiwi-dark mb-2">Voice-to-Text Reports</h3>
-                        <p class="text-kiwi-gray">Faster than typing. Dictate reports on site with powerful voice recognition.</p>
+                        <h3 class="text-lg sm:text-xl font-bold text-kiwi-dark mb-2">Voice-to-Text Reports</h3>
+                        <p class="text-kiwi-gray text-sm sm:text-base">Faster than typing. Dictate reports on site with powerful voice recognition.</p>
                     </div>
 
-                     <div class="group feature-card bg-white rounded-2xl p-8 shadow-lg border border-gray-200 animated-element" style="animation-delay: 0.3s;">
+                     <div class="group feature-card bg-white rounded-xl md:rounded-2xl p-6 md:p-8 shadow-lg border border-gray-200 animated-element" style="animation-delay: 0.3s;">
                         <div class="text-kiwi-green mb-4 transition-colors duration-300 group-hover:text-kiwi-dark">
-                           <svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2V9z" /><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 22V12h6v10" /></svg>
+                           <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10 sm:h-12 sm:w-12" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2V9z" /><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 22V12h6v10" /></svg>
                         </div>
-                        <h3 class="text-xl font-bold text-kiwi-dark mb-2">Photo Evidence with GPS</h3>
-                        <p class="text-kiwi-gray">Geotagged photos provide trust and transparency for clients and teams.</p>
+                        <h3 class="text-lg sm:text-xl font-bold text-kiwi-dark mb-2">Photo Evidence with GPS</h3>
+                        <p class="text-kiwi-gray text-sm sm:text-base">Geotagged photos provide trust and transparency for clients and teams.</p>
                     </div>
 
-                     <div class="group feature-card bg-white rounded-2xl p-8 shadow-lg border border-gray-200 animated-element" style="animation-delay: 0.4s;">
+                     <div class="group feature-card bg-white rounded-xl md:rounded-2xl p-6 md:p-8 shadow-lg border border-gray-200 animated-element" style="animation-delay: 0.4s;">
                         <div class="text-kiwi-green mb-4 transition-colors duration-300 group-hover:text-kiwi-dark">
-                           <svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+                           <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10 sm:h-12 sm:w-12" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
                         </div>
-                        <h3 class="text-xl font-bold text-kiwi-dark mb-2">Cost-efficient SaaS</h3>
-                        <p class="text-kiwi-gray">Easy for small contractors to adopt with flexible, scalable pricing plans.</p>
+                        <h3 class="text-lg sm:text-xl font-bold text-kiwi-dark mb-2">Cost-efficient SaaS</h3>
+                        <p class="text-kiwi-gray text-sm sm:text-base">Easy for small contractors to adopt with flexible, scalable pricing plans.</p>
                     </div>
 
-                     <div class="group feature-card bg-white rounded-2xl p-8 shadow-lg border border-gray-200 animated-element" style="animation-delay: 0.5s;">
+                     <div class="group feature-card bg-white rounded-xl md:rounded-2xl p-6 md:p-8 shadow-lg border border-gray-200 animated-element" style="animation-delay: 0.5s;">
                         <div class="text-kiwi-green mb-4 transition-colors duration-300 group-hover:text-kiwi-dark">
-                           <svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" /></svg>
+                           <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10 sm:h-12 sm:w-12" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" /></svg>
                         </div>
-                        <h3 class="text-xl font-bold text-kiwi-dark mb-2">Real-time Collaboration</h3>
-                        <p class="text-kiwi-gray">Project managers get instant updates from site teams as work progresses.</p>
+                        <h3 class="text-lg sm:text-xl font-bold text-kiwi-dark mb-2">Real-time Collaboration</h3>
+                        <p class="text-kiwi-gray text-sm sm:text-base">Project managers get instant updates from site teams as work progresses.</p>
                     </div>
                 </div>
             </div>
         </section>
 
-        <section class="py-20 md:py-24 bg-kiwi-dark text-white text-center relative overflow-hidden">
+        <section class="py-16 md:py-24 bg-kiwi-dark text-white text-center relative overflow-hidden">
             <div class="hero-pattern absolute inset-0 z-0 opacity-20" style="filter: invert(1);"></div>
-            <div class="container mx-auto px-6 relative z-10 animated-element">
-                <h2 class="text-3xl md:text-4xl font-heading font-bold mb-6">Be the First to Build with NineKiwi</h2>
-                <p class="text-lg md:text-xl text-kiwi-light mb-10 max-w-2xl mx-auto">Join our early access list and help shape the future of construction technology for the global workforce.</p>
-                <a href="mailto:hello@ninekiwi.com?subject=Early%20Access%20Request" class="bg-kiwi-green hover:bg-white hover:text-kiwi-dark font-bold py-4 px-10 rounded-full text-lg transition duration-300 transform hover:scale-105 shadow-lg">
+            <div class="container mx-auto px-4 sm:px-6 relative z-10 animated-element">
+                <h2 class="text-2xl sm:text-3xl md:text-4xl font-heading font-bold mb-4 sm:mb-6">Be the First to Build with NineKiwi</h2>
+                <p class="text-base sm:text-lg md:text-xl text-kiwi-light mb-8 sm:mb-10 max-w-2xl mx-auto">Join our early access list and help shape the future of construction technology for the global workforce.</p>
+                <a href="mailto:hello@ninekiwi.com?subject=Early%20Access%20Request" class="inline-block bg-kiwi-green hover:bg-white hover:text-kiwi-dark font-bold py-3 px-8 sm:py-4 sm:px-10 rounded-full text-base sm:text-lg transition duration-300 transform hover:scale-105 shadow-lg">
                     Request Early Access
                 </a>
             </div>
         </section>
     </main>
 
-    <footer class="bg-kiwi-black text-kiwi-light py-16">
-        <div class="container mx-auto px-6 text-center">
-            <div class="flex flex-col items-center gap-8">
-                <a href="#" class="flex items-center space-x-3">
-                    <img src="logo.png" alt="NineKiwi Logo" class="h-10 w-10">
-                    <span class="text-2xl font-heading font-bold text-white">nine<span class="text-kiwi-green">kiwi</span></span>
+    <footer class="bg-kiwi-black text-kiwi-light py-12 md:py-16">
+        <div class="container mx-auto px-4 sm:px-6 text-center">
+            <div class="flex flex-col items-center gap-6 md:gap-8">
+                <a href="#" class="flex items-center space-x-2 sm:space-x-3">
+                    <img src="logo.png" alt="NineKiwi Logo" class="h-8 w-8 sm:h-10 sm:w-10">
+                    <span class="text-xl sm:text-2xl font-heading font-bold text-white">nine<span class="text-kiwi-green">kiwi</span></span>
                 </a>
                 
-                <div class="flex flex-wrap justify-center gap-x-6 gap-y-2">
-                    <a href="https://reportninekiwi.web.app/" class="hover:text-kiwi-green transition">Free Report Tool</a>
-                    <a href="mailto:hello@ninekiwi.com" class="hover:text-kiwi-green transition">Contact</a>
+                <div class="flex flex-wrap justify-center gap-x-4 sm:gap-x-6 gap-y-2">
+                    <a href="https://reportninekiwi.web.app/" class="hover:text-kiwi-green transition text-sm sm:text-base">Free Report Tool</a>
+                    <a href="mailto:hello@ninekiwi.com" class="hover:text-kiwi-green transition text-sm sm:text-base">Contact</a>
                 </div>
 
-                <div class="text-center text-sm">
+                <div class="text-center text-xs sm:text-sm">
                     <p class="text-kiwi-tan">© 2025 NineKiwi. All rights reserved.</p>
                     <p class="text-kiwi-gray mt-2">
                         Currently in development - our team is busy learning Flutter and improving our social skills!
@@ -267,6 +311,33 @@
 
     <script>
         document.addEventListener("DOMContentLoaded", () => {
+            // Mobile menu functionality
+            const mobileMenuToggle = document.getElementById('mobile-menu-toggle');
+            const mobileMenuClose = document.getElementById('mobile-menu-close');
+            const mobileMenu = document.getElementById('mobile-menu');
+            
+            if (mobileMenuToggle && mobileMenu) {
+                mobileMenuToggle.addEventListener('click', () => {
+                    mobileMenu.classList.add('active');
+                    document.body.style.overflow = 'hidden';
+                });
+                
+                mobileMenuClose.addEventListener('click', () => {
+                    mobileMenu.classList.remove('active');
+                    document.body.style.overflow = 'auto';
+                });
+                
+                // Close menu when clicking on a link
+                const mobileMenuLinks = mobileMenu.querySelectorAll('a');
+                mobileMenuLinks.forEach(link => {
+                    link.addEventListener('click', () => {
+                        mobileMenu.classList.remove('active');
+                        document.body.style.overflow = 'auto';
+                    });
+                });
+            }
+            
+            // Animation observer
             const observer = new IntersectionObserver((entries) => {
                 entries.forEach(entry => {
                     if (entry.isIntersecting) {
