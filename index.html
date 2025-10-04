@@ -19,7 +19,7 @@
                     colors: {
                         'kiwi-green': '#78C850',
                         'kiwi-dark': '#3E5C2F',
-                        'kiwi-light': '#F0F5EC', // Lightened for a softer background
+                        'kiwi-light': '#F0F5EC',
                         'kiwi-brown': '#8C6239',
                         'kiwi-tan': '#D9C6A3',
                         'kiwi-gray': '#4A5568',
@@ -44,9 +44,7 @@
     </script>
     
     <style>
-        .feature-card {
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
+        .feature-card { transition: transform 0.3s ease, box-shadow 0.3s ease; }
         .feature-card:hover {
             transform: translateY(-8px);
             box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
@@ -66,34 +64,17 @@
         .report-card-gradient {
             background: linear-gradient(135deg, #3E5C2F 0%, #78C850 100%);
         }
-        /* Style for the animated elements */
-        .animated-element {
-            opacity: 0;
-        }
-        
-        /* Mobile menu styles */
+        .animated-element { opacity: 0; }
         .mobile-menu {
             transition: all 0.3s ease;
             transform: translateY(-100%);
             opacity: 0;
             visibility: hidden;
         }
-        .mobile-menu.active {
-            transform: translateY(0);
-            opacity: 1;
-            visibility: visible;
-        }
-        
-        /* Mobile-specific adjustments */
+        .mobile-menu.active { transform: translateY(0); opacity: 1; visibility: visible; }
         @media (max-width: 768px) {
-            .kiwi-shape {
-                width: 150px;
-                height: 150px;
-            }
-            .kiwi-shape.bottom-10.right-10 {
-                bottom: 5%;
-                right: 5%;
-            }
+            .kiwi-shape { width: 150px; height: 150px; }
+            .kiwi-shape.bottom-10.right-10 { bottom: 5%; right: 5%; }
         }
     </style>
 </head>
@@ -112,9 +93,6 @@
             
             <!-- Desktop Navigation -->
             <div class="hidden md:flex items-center space-x-4">
-                <a href="https://reportninekiwi.web.app/" class="border-2 border-kiwi-green text-kiwi-green hover:bg-kiwi-green hover:text-white font-bold py-2 px-4 sm:px-6 rounded-full transition duration-300 text-sm sm:text-base">
-                    Free Report Tool
-                </a>
                 <a href="Payments.html" class="border-2 border-kiwi-green text-kiwi-green hover:bg-kiwi-green hover:text-white font-bold py-2 px-4 sm:px-6 rounded-full transition duration-300 text-sm sm:text-base">
                     NineKiwi Payments
                 </a>
@@ -126,7 +104,7 @@
             <!-- Mobile Navigation Toggle -->
             <div class="md:hidden flex items-center space-x-2">
                 <button id="mobile-menu-toggle" class="text-kiwi-dark focus:outline-none">
-                    <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
                     </svg>
                 </button>
@@ -136,9 +114,6 @@
         <!-- Mobile Menu -->
         <div id="mobile-menu" class="mobile-menu fixed inset-0 bg-white z-30 pt-20 px-6 pb-8 md:hidden">
             <div class="flex flex-col space-y-6">
-                <a href="https://reportninekiwi.web.app/" class="border-2 border-kiwi-green text-kiwi-green hover:bg-kiwi-green hover:text-white font-bold py-3 px-6 rounded-full transition duration-300 text-center">
-                    Free Report Tool
-                </a>
                 <a href="Payments.html" class="border-2 border-kiwi-green text-kiwi-green hover:bg-kiwi-green hover:text-white font-bold py-3 px-6 rounded-full transition duration-300 text-center">
                     NineKiwi Payments
                 </a>
@@ -147,7 +122,7 @@
                 </a>
             </div>
             <button id="mobile-menu-close" class="absolute top-6 right-6 text-kiwi-dark">
-                <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
                 </svg>
             </button>
@@ -155,7 +130,7 @@
     </header>
 
     <main>
-        <section class="relative py-16 md:py-28">
+                <section class="relative py-16 md:py-28">
             <div class="hero-pattern absolute inset-0 z-0 opacity-50"></div>
             <div class="container mx-auto px-4 sm:px-6 relative z-10 text-center">
                 <div class="max-w-4xl mx-auto animated-element">
@@ -171,38 +146,37 @@
                 </div>
             </div>
         </section>
-
         <section class="py-12 md:py-24 bg-white">
             <div class="container mx-auto px-4 sm:px-6">
                 <div class="report-card-gradient rounded-2xl md:rounded-3xl shadow-2xl overflow-hidden">
                     <div class="grid grid-cols-1 md:grid-cols-2 items-center gap-6 md:gap-12 p-6 md:p-16">
                         <div class="text-white z-10 animated-element order-2 md:order-1">
-                            <h2 class="text-2xl sm:text-3xl md:text-4xl font-heading font-bold mb-4">Free Report Generator</h2>
+                            <h2 class="text-2xl sm:text-3xl md:text-4xl font-heading font-bold mb-4">Upcoming Report Tool</h2>
                             <p class="text-base sm:text-lg text-kiwi-light mb-6">
-                                Instantly generate professional PDF reports for your construction projects. No sign-up required.
+                                A modern way to generate professional PDF reports for your construction projects. Coming soon.
                             </p>
                             <ul class="space-y-3 sm:space-y-4 mb-6 sm:mb-8">
-                                <li class="flex items-center gap-3 text-sm sm:text-base"><svg class="h-5 w-5 sm:h-6 sm:w-6 text-kiwi-light flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg> Create professional inspection reports</li>
-                                <li class="flex items-center gap-3 text-sm sm:text-base"><svg class="h-5 w-5 sm:h-6 sm:w-6 text-kiwi-light flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg> Add photos and notes directly from site</li>
-                                <li class="flex items-center gap-3 text-sm sm:text-base"><svg class="h-5 w-5 sm:h-6 sm:w-6 text-kiwi-light flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg> 100% free with unlimited usage</li>
+                                <li class="flex items-center gap-3 text-sm sm:text-base"><svg class="h-5 w-5 sm:h-6 sm:w-6 text-kiwi-light" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg> Create professional inspection reports</li>
+                                <li class="flex items-center gap-3 text-sm sm:text-base"><svg class="h-5 w-5 sm:h-6 sm:w-6 text-kiwi-light" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg> Add photos and notes directly from site</li>
+                                <li class="flex items-center gap-3 text-sm sm:text-base"><svg class="h-5 w-5 sm:h-6 sm:w-6 text-kiwi-light" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg> Easy to use, built for field teams</li>
                             </ul>
-                            <a href="https://reportninekiwi.web.app/" class="bg-white text-kiwi-dark hover:bg-kiwi-light font-bold py-3 px-6 sm:py-3 sm:px-8 rounded-full text-base sm:text-lg transition duration-300 transform hover:scale-105 w-full sm:w-fit text-center block sm:inline-block">
-                                Try The Tool
-                            </a>
+                            <span class="bg-white text-kiwi-dark font-bold py-3 px-6 sm:py-3 sm:px-8 rounded-full text-base sm:text-lg w-full sm:w-fit text-center block sm:inline-block opacity-70 cursor-not-allowed">
+                                Coming Soon
+                            </span>
                         </div>
                         
                         <div class="relative h-full flex items-center justify-center animated-element order-1 md:order-2 mb-6 md:mb-0">
                             <div class="w-full max-w-xs p-3 bg-kiwi-black rounded-2xl md:rounded-3xl shadow-2xl">
                                 <div class="bg-white rounded-xl md:rounded-2xl p-4 space-y-3 h-80 sm:h-96 overflow-y-auto">
-                                    <p class="font-bold text-kiwi-dark text-sm sm:text-base">NineKiwi Report Generator</p>
-                                     <div class="h-10 sm:h-12 bg-kiwi-light rounded-lg"></div>
-                                     <div class="h-14 sm:h-16 bg-kiwi-light rounded-lg"></div>
-                                     <div class="bg-kiwi-light h-16 sm:h-20 rounded-lg flex items-center justify-center text-xs sm:text-sm text-kiwi-gray">Photo Upload</div>
+                                    <p class="font-bold text-kiwi-dark text-sm sm:text-base">NineKiwi Report Tool (Preview)</p>
+                                    <div class="h-10 sm:h-12 bg-kiwi-light rounded-lg"></div>
+                                    <div class="h-14 sm:h-16 bg-kiwi-light rounded-lg"></div>
+                                    <div class="bg-kiwi-light h-16 sm:h-20 rounded-lg flex items-center justify-center text-xs sm:text-sm text-kiwi-gray">Photo Upload</div>
                                     <div class="space-y-1">
-                                       <div class="h-3 bg-kiwi-light rounded-full w-full"></div>
-                                       <div class="h-3 bg-kiwi-light rounded-full w-5/6"></div>
+                                        <div class="h-3 bg-kiwi-light rounded-full w-full"></div>
+                                        <div class="h-3 bg-kiwi-light rounded-full w-5/6"></div>
                                     </div>
-                                     <div class="bg-kiwi-green text-white text-center py-2 rounded-lg font-semibold text-sm sm:text-base">Generate PDF</div>
+                                    <div class="bg-kiwi-green text-white text-center py-2 rounded-lg font-semibold text-sm sm:text-base">Generate PDF</div>
                                 </div>
                             </div>
                         </div>
@@ -210,8 +184,7 @@
                 </div>
             </div>
         </section>
-
-        <section class="py-12 md:py-24 bg-kiwi-light">
+    <section class="py-12 md:py-24 bg-kiwi-light">
             <div class="container mx-auto px-4 sm:px-6">
                 <div class="text-center max-w-3xl mx-auto mb-12 md:mb-16 animated-element">
                     <h2 class="text-2xl sm:text-3xl md:text-4xl font-heading font-bold text-kiwi-dark mb-4">
@@ -295,7 +268,6 @@
                 </a>
                 
                 <div class="flex flex-wrap justify-center gap-x-4 sm:gap-x-6 gap-y-2">
-                    <a href="https://reportninekiwi.web.app/" class="hover:text-kiwi-green transition text-sm sm:text-base">Free Report Tool</a>
                     <a href="mailto:hello@ninekiwi.com" class="hover:text-kiwi-green transition text-sm sm:text-base">Contact</a>
                 </div>
 
@@ -309,9 +281,9 @@
         </div>
     </footer>
 
+
     <script>
         document.addEventListener("DOMContentLoaded", () => {
-            // Mobile menu functionality
             const mobileMenuToggle = document.getElementById('mobile-menu-toggle');
             const mobileMenuClose = document.getElementById('mobile-menu-close');
             const mobileMenu = document.getElementById('mobile-menu');
@@ -327,7 +299,6 @@
                     document.body.style.overflow = 'auto';
                 });
                 
-                // Close menu when clicking on a link
                 const mobileMenuLinks = mobileMenu.querySelectorAll('a');
                 mobileMenuLinks.forEach(link => {
                     link.addEventListener('click', () => {
@@ -337,7 +308,6 @@
                 });
             }
             
-            // Animation observer
             const observer = new IntersectionObserver((entries) => {
                 entries.forEach(entry => {
                     if (entry.isIntersecting) {
