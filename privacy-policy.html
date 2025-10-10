@@ -1,0 +1,635 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Privacy Policy for NineKiwi - Protecting your data with advanced security measures">
+    <title>Privacy Policy | NineKiwi</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'kiwi-green': '#78C850',
+                        'kiwi-dark': '#3E5C2F',
+                        'kiwi-light': '#F0F5EC',
+                        'kiwi-brown': '#8C6239',
+                        'kiwi-tan': '#D9C6A3',
+                        'kiwi-gray': '#4A5568',
+                        'kiwi-black': '#1A202C',
+                    },
+                    fontFamily: {
+                        'heading': ['Space Grotesk', 'sans-serif'],
+                        'body': ['Inter', 'sans-serif'],
+                    },
+                    animation: {
+                        'fade-in-up': 'fadeInUp 0.8s ease-out forwards',
+                    },
+                    keyframes: {
+                        fadeInUp: {
+                            '0%': { opacity: '0', transform: 'translateY(20px)' },
+                            '100%': { opacity: '1', transform: 'translateY(0)' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <style>
+        .kiwi-shape {
+            position: absolute;
+            width: 200px;
+            height: 200px;
+            border-radius: 40% 60% 60% 40% / 60% 30% 70% 40%;
+            background: linear-gradient(135deg, rgba(120, 200, 80, 0.1) 0%, rgba(62, 92, 47, 0.15) 100%);
+            z-index: 0;
+            filter: blur(10px);
+        }
+        .hero-pattern {
+            background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%233E5C2F' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+        }
+        .mobile-menu {
+            transition: all 0.3s ease;
+            transform: translateY(-100%);
+            opacity: 0;
+            visibility: hidden;
+        }
+        .mobile-menu.active { transform: translateY(0); opacity: 1; visibility: visible; }
+        @media (max-width: 768px) {
+            .kiwi-shape { width: 150px; height: 150px; }
+            .kiwi-shape.bottom-10.right-10 { bottom: 5%; right: 5%; }
+        }
+        .policy-nav {
+            position: sticky;
+            top: 100px;
+        }
+        .policy-nav a {
+            display: block;
+            padding: 8px 16px;
+            margin-bottom: 4px;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+        }
+        .policy-nav a:hover {
+            background-color: rgba(120, 200, 80, 0.1);
+            color: #3E5C2F;
+        }
+        .policy-section {
+            scroll-margin-top: 120px;
+        }
+        .security-badge {
+            display: inline-flex;
+            align-items: center;
+            background: rgba(120, 200, 80, 0.1);
+            color: #3E5C2F;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            margin-left: 8px;
+        }
+    </style>
+</head>
+
+<body class="bg-kiwi-light font-body text-kiwi-gray overflow-x-hidden">
+
+    <div class="kiwi-shape -top-20 -left-20"></div>
+    <div class="kiwi-shape bottom-10 right-10 rotate-45 w-40 h-40"></div>
+
+    <header class="relative z-20">
+        <nav class="container mx-auto px-4 sm:px-6 py-4 sm:py-5 flex justify-between items-center">
+            <a href="https://ninekiwi.com" class="flex items-center space-x-2 sm:space-x-3">
+                <img src="logo.png" alt="NineKiwi Logo" class="h-8 w-8 sm:h-10 sm:w-10 md:h-12 md:w-12">
+                <span class="text-xl sm:text-2xl font-heading font-bold text-kiwi-dark">nine<span class="text-kiwi-green">kiwi</span></span>
+            </a>
+            
+            <!-- Desktop Navigation -->
+            <div class="hidden md:flex items-center space-x-4">
+                <a href="https://ninekiwi.com" class="border-2 border-kiwi-green text-kiwi-green hover:bg-kiwi-green hover:text-white font-bold py-2 px-4 sm:px-6 rounded-full transition duration-300 text-sm sm:text-base">
+                    Back to Main Site
+                </a>
+            </div>
+            
+            <!-- Mobile Navigation Toggle -->
+            <div class="md:hidden flex items-center space-x-2">
+                <button id="mobile-menu-toggle" class="text-kiwi-dark focus:outline-none">
+                    <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                    </svg>
+                </button>
+            </div>
+        </nav>
+        
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="mobile-menu fixed inset-0 bg-white z-30 pt-20 px-6 pb-8 md:hidden">
+            <div class="flex flex-col space-y-6">
+                <a href="https://ninekiwi.com" class="border-2 border-kiwi-green text-kiwi-green hover:bg-kiwi-green hover:text-white font-bold py-3 px-6 rounded-full transition duration-300 text-center">
+                    Back to Main Site
+                </a>
+            </div>
+            <button id="mobile-menu-close" class="absolute top-6 right-6 text-kiwi-dark">
+                <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                </svg>
+            </button>
+        </div>
+    </header>
+
+    <main class="py-12 md:py-16">
+        <div class="container mx-auto px-4 sm:px-6">
+            <div class="max-w-6xl mx-auto">
+                <!-- Page Header -->
+                <div class="text-center mb-12 md:mb-16 animated-element">
+                    <h1 class="text-3xl sm:text-4xl md:text-5xl font-heading font-bold text-kiwi-dark mb-4">
+                        Privacy Policy
+                    </h1>
+                    <p class="text-base sm:text-lg md:text-xl text-kiwi-gray max-w-3xl mx-auto">
+                        Your privacy and data security are our top priorities. Learn how we protect your information.
+                    </p>
+                    <div class="mt-6 flex flex-col sm:flex-row justify-center gap-4">
+                        <p class="text-sm text-kiwi-gray">Last updated: September 30, 2025</p>
+                        <a href="https://ninekiwi.com" 
+                           class="inline-flex items-center justify-center bg-kiwi-green hover:bg-kiwi-dark text-white font-bold py-2 px-6 rounded-full transition duration-300 transform hover:scale-105 text-sm">
+                            <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
+                            </svg>
+                            Back to NineKiwi
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Security Highlights -->
+                <div class="bg-gradient-to-r from-kiwi-green/10 to-kiwi-dark/10 border border-kiwi-green/20 rounded-xl p-6 mb-8 animated-element">
+                    <div class="flex items-center mb-4">
+                        <svg class="w-6 h-6 text-kiwi-green mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+                        </svg>
+                        <h2 class="text-xl font-heading font-bold text-kiwi-dark">Security First Approach</h2>
+                    </div>
+                    <p class="text-kiwi-gray mb-4">We implement enterprise-grade security measures to protect your data from unauthorized access, fraud, and cyber threats.</p>
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-4 text-sm">
+                        <div class="flex items-center">
+                            <svg class="w-4 h-4 text-kiwi-green mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+                            </svg>
+                            <span>End-to-End Encryption</span>
+                        </div>
+                        <div class="flex items-center">
+                            <svg class="w-4 h-4 text-kiwi-green mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+                            </svg>
+                            <span>Advanced Fraud Detection</span>
+                        </div>
+                        <div class="flex items-center">
+                            <svg class="w-4 h-4 text-kiwi-green mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+                            </svg>
+                            <span>PCI DSS Compliant</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="flex flex-col lg:flex-row gap-8">
+                    <!-- Navigation Sidebar -->
+                    <div class="lg:w-1/4 animated-element">
+                        <div class="bg-white rounded-xl p-6 shadow-lg border border-gray-200 policy-nav">
+                            <h3 class="font-heading font-bold text-kiwi-dark mb-4 text-lg">Contents</h3>
+                            <nav class="space-y-1">
+                                <a href="#introduction" class="text-sm font-medium">1. Introduction</a>
+                                <a href="#information-collection" class="text-sm font-medium">2. Information Collection</a>
+                                <a href="#information-use" class="text-sm font-medium">3. How We Use Information</a>
+                                <a href="#data-protection" class="text-sm font-medium">4. Data Protection</a>
+                                <a href="#fraud-prevention" class="text-sm font-medium">5. Fraud Prevention</a>
+                                <a href="#data-sharing" class="text-sm font-medium">6. Data Sharing</a>
+                                <a href="#cookies" class="text-sm font-medium">7. Cookies & Tracking</a>
+                                <a href="#user-rights" class="text-sm font-medium">8. Your Rights</a>
+                                <a href="#data-retention" class="text-sm font-medium">9. Data Retention</a>
+                                <a href="#international-transfers" class="text-sm font-medium">10. International Transfers</a>
+                                <a href="#children-privacy" class="text-sm font-medium">11. Children's Privacy</a>
+                                <a href="#changes" class="text-sm font-medium">12. Policy Changes</a>
+                                <a href="#contact" class="text-sm font-medium">13. Contact Us</a>
+                            </nav>
+                        </div>
+                    </div>
+                    
+                    <!-- Main Content -->
+                    <div class="lg:w-3/4">
+                        <div class="bg-white rounded-xl p-6 md:p-8 shadow-lg border border-gray-200 animated-element" style="animation-delay: 0.1s;">
+                            
+                            <section id="introduction" class="policy-section mb-8">
+                                <h2 class="text-2xl font-heading font-bold text-kiwi-dark mb-4">1. Introduction</h2>
+                                <p class="mb-4">At <strong class="text-kiwi-dark">NineKiwi</strong>, we are committed to protecting your privacy and securing your personal information. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you use our platform and services.</p>
+                                <p>By accessing or using NineKiwi, you agree to the collection and use of information in accordance with this policy. We regularly review and update our security measures to protect against emerging threats.</p>
+                            </section>
+
+                            <section id="information-collection" class="policy-section mb-8">
+                                <h2 class="text-2xl font-heading font-bold text-kiwi-dark mb-4">2. Information We Collect</h2>
+                                
+                                <h3 class="text-lg font-semibold text-kiwi-dark mb-3">Personal Information</h3>
+                                <ul class="list-disc list-inside space-y-2 mb-6">
+                                    <li><strong>Account Information:</strong> Name, email address, phone number, company details</li>
+                                    <li><strong>Payment Information:</strong> Billing address, payment method details (processed securely by Razorpay)</li>
+                                    <li><strong>Professional Information:</strong> Job title, company role, project details</li>
+                                    <li><strong>Communication Data:</strong> Messages, support requests, feedback</li>
+                                </ul>
+                                
+                                <h3 class="text-lg font-semibold text-kiwi-dark mb-3">Technical Information</h3>
+                                <ul class="list-disc list-inside space-y-2 mb-6">
+                                    <li><strong>Device Information:</strong> IP address, browser type, operating system</li>
+                                    <li><strong>Usage Data:</strong> Pages visited, features used, time spent on platform</li>
+                                    <li><strong>Location Data:</strong> General location based on IP address for security purposes</li>
+                                </ul>
+                                
+                                <h3 class="text-lg font-semibold text-kiwi-dark mb-3">Project Data</h3>
+                                <ul class="list-disc list-inside space-y-2">
+                                    <li>Construction project details, timelines, budgets</li>
+                                    <li>Team member information and collaboration data</li>
+                                    <li>Document uploads, photos, and reports</li>
+                                </ul>
+                            </section>
+
+                            <section id="information-use" class="policy-section mb-8">
+                                <h2 class="text-2xl font-heading font-bold text-kiwi-dark mb-4">3. How We Use Your Information</h2>
+                                <ul class="list-disc list-inside space-y-3">
+                                    <li>To provide, maintain, and improve our services</li>
+                                    <li>To process transactions and send transaction notifications</li>
+                                    <li>To detect and prevent fraud, abuse, and security issues</li>
+                                    <li>To personalize your experience and provide customer support</li>
+                                    <li>To communicate about updates, security alerts, and administrative messages</li>
+                                    <li>To comply with legal obligations and enforce our terms</li>
+                                    <li>For analytics and research to enhance our platform</li>
+                                </ul>
+                            </section>
+
+                            <section id="data-protection" class="policy-section mb-8">
+                                <h2 class="text-2xl font-heading font-bold text-kiwi-dark mb-4">4. Data Protection & Security <span class="security-badge">Enterprise Grade</span></h2>
+                                <p class="mb-4">We implement comprehensive security measures to protect your data:</p>
+                                
+                                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+                                    <div class="bg-kiwi-light p-4 rounded-lg">
+                                        <h4 class="font-semibold text-kiwi-dark mb-2">Encryption</h4>
+                                        <ul class="list-disc list-inside space-y-1 text-sm">
+                                            <li>End-to-end encryption for all data transmissions</li>
+                                            <li>AES-256 encryption for data at rest</li>
+                                            <li>SSL/TLS for secure communications</li>
+                                        </ul>
+                                    </div>
+                                    <div class="bg-kiwi-light p-4 rounded-lg">
+                                        <h4 class="font-semibold text-kiwi-dark mb-2">Access Controls</h4>
+                                        <ul class="list-disc list-inside space-y-1 text-sm">
+                                            <li>Role-based access control (RBAC)</li>
+                                            <li>Multi-factor authentication (MFA)</li>
+                                            <li>Regular access reviews and audits</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                
+                                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                    <div class="bg-kiwi-light p-4 rounded-lg">
+                                        <h4 class="font-semibold text-kiwi-dark mb-2">Infrastructure Security</h4>
+                                        <ul class="list-disc list-inside space-y-1 text-sm">
+                                            <li>Secure cloud infrastructure with SOC 2 compliance</li>
+                                            <li>Regular security patching and updates</li>
+                                            <li>DDoS protection and WAF</li>
+                                        </ul>
+                                    </div>
+                                    <div class="bg-kiwi-light p-4 rounded-lg">
+                                        <h4 class="font-semibold text-kiwi-dark mb-2">Monitoring & Response</h4>
+                                        <ul class="list-disc list-inside space-y-1 text-sm">
+                                            <li>24/7 security monitoring</li>
+                                            <li>Automated threat detection</li>
+                                            <li>Incident response plan</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </section>
+
+                            <section id="fraud-prevention" class="policy-section mb-8">
+                                <h2 class="text-2xl font-heading font-bold text-kiwi-dark mb-4">5. Fraud Prevention & Detection <span class="security-badge">Advanced</span></h2>
+                                <p class="mb-4">We employ sophisticated measures to prevent and detect fraudulent activities:</p>
+                                
+                                <div class="space-y-4">
+                                    <div class="border-l-4 border-kiwi-green pl-4">
+                                        <h4 class="font-semibold text-kiwi-dark">Real-time Transaction Monitoring</h4>
+                                        <p class="text-sm">Advanced algorithms analyze transaction patterns in real-time to flag suspicious activities, including unusual payment amounts, frequencies, or locations.</p>
+                                    </div>
+                                    
+                                    <div class="border-l-4 border-kiwi-green pl-4">
+                                        <h4 class="font-semibold text-kiwi-dark">Behavioral Analytics</h4>
+                                        <p class="text-sm">Machine learning models detect anomalous user behavior, such as rapid account creation, unusual login patterns, or abnormal data access.</p>
+                                    </div>
+                                    
+                                    <div class="border-l-4 border-kiwi-green pl-4">
+                                        <h4 class="font-semibold text-kiwi-dark">Identity Verification</h4>
+                                        <p class="text-sm">Multi-layered identity verification including email confirmation, phone verification, and document validation for high-risk transactions.</p>
+                                    </div>
+                                    
+                                    <div class="border-l-4 border-kiwi-green pl-4">
+                                        <h4 class="font-semibold text-kiwi-dark">Device Fingerprinting</h4>
+                                        <p class="text-sm">Unique device identification to detect and prevent account takeover attempts and suspicious login activities.</p>
+                                    </div>
+                                    
+                                    <div class="border-l-4 border-kiwi-green pl-4">
+                                        <h4 class="font-semibold text-kiwi-dark">Payment Fraud Prevention</h4>
+                                        <p class="text-sm">Integration with Razorpay's advanced fraud detection systems, including 3D Secure authentication, velocity checks, and blacklist monitoring.</p>
+                                    </div>
+                                    
+                                    <div class="border-l-4 border-kiwi-green pl-4">
+                                        <h4 class="font-semibold text-kiwi-dark">Anti-Phishing Measures</h4>
+                                        <p class="text-sm">DMARC, DKIM, and SPF protocols to prevent email spoofing, along with user education on identifying phishing attempts.</p>
+                                    </div>
+                                </div>
+                                
+                                <div class="bg-yellow-50 border border-yellow-200 rounded-lg p-4 mt-6">
+                                    <div class="flex">
+                                        <svg class="w-5 h-5 text-yellow-600 mr-3 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-2.5L13.732 4c-.77-.833-1.964-.833-2.732 0L4.082 16.5c-.77.833.192 2.5 1.732 2.5z" />
+                                        </svg>
+                                        <div>
+                                            <h4 class="font-semibold text-yellow-800">Reporting Suspicious Activity</h4>
+                                            <p class="text-yellow-700 text-sm mt-1">If you suspect any fraudulent activity related to your account, please contact us immediately at <strong>hello@ninekiwi.com</strong>. We investigate all reports promptly.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </section>
+
+                            <section id="data-sharing" class="policy-section mb-8">
+                                <h2 class="text-2xl font-heading font-bold text-kiwi-dark mb-4">6. Data Sharing & Third Parties</h2>
+                                <p class="mb-4">We do not sell your personal information. We may share data only in these specific circumstances:</p>
+                                
+                                <h3 class="text-lg font-semibold text-kiwi-dark mb-3">Service Providers</h3>
+                                <ul class="list-disc list-inside space-y-2 mb-6">
+                                    <li><strong>Payment Processing:</strong> Razorpay (PCI DSS Level 1 certified) for secure payment processing</li>
+                                    <li><strong>Cloud Infrastructure:</strong> Secure cloud providers with data protection commitments</li>
+                                    <li><strong>Communication Tools:</strong> For sending transactional emails and notifications</li>
+                                    <li><strong>Analytics:</strong> Anonymous usage data to improve our services</li>
+                                </ul>
+                                
+                                <h3 class="text-lg font-semibold text-kiwi-dark mb-3">Legal Requirements</h3>
+                                <p>We may disclose information if required by law, regulation, legal process, or governmental request, or to protect the rights, property, or safety of NineKiwi, our users, or the public.</p>
+                            </section>
+
+                            <section id="cookies" class="policy-section mb-8">
+                                <h2 class="text-2xl font-heading font-bold text-kiwi-dark mb-4">7. Cookies & Tracking Technologies</h2>
+                                <p class="mb-4">We use cookies and similar technologies for essential functions, security, and analytics:</p>
+                                
+                                <div class="overflow-x-auto">
+                                    <table class="min-w-full bg-white border border-gray-200 rounded-lg">
+                                        <thead>
+                                            <tr class="bg-kiwi-light">
+                                                <th class="py-2 px-4 border-b text-left">Type</th>
+                                                <th class="py-2 px-4 border-b text-left">Purpose</th>
+                                                <th class="py-2 px-4 border-b text-left">Duration</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td class="py-2 px-4 border-b">Essential</td>
+                                                <td class="py-2 px-4 border-b">Session management, security, fraud prevention</td>
+                                                <td class="py-2 px-4 border-b">Session</td>
+                                            </tr>
+                                            <tr>
+                                                <td class="py-2 px-4 border-b">Functional</td>
+                                                <td class="py-2 px-4 border-b">Preferences, authentication</td>
+                                                <td class="py-2 px-4 border-b">Up to 1 year</td>
+                                            </tr>
+                                            <tr>
+                                                <td class="py-2 px-4 border-b">Analytics</td>
+                                                <td class="py-2 px-4 border-b">Usage statistics, performance monitoring</td>
+                                                <td class="py-2 px-4 border-b">Up to 2 years</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                                
+                                <p class="mt-4 text-sm text-kiwi-gray">You can control cookies through your browser settings, though disabling essential cookies may impact platform functionality.</p>
+                            </section>
+
+                            <section id="user-rights" class="policy-section mb-8">
+                                <h2 class="text-2xl font-heading font-bold text-kiwi-dark mb-4">8. Your Data Protection Rights</h2>
+                                <p class="mb-4">Depending on your location, you may have the following rights regarding your personal data:</p>
+                                
+                                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                    <div class="flex items-start">
+                                        <svg class="w-5 h-5 text-kiwi-green mr-3 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+                                        </svg>
+                                        <div>
+                                            <h4 class="font-semibold text-kiwi-dark">Access & Portability</h4>
+                                            <p class="text-sm">Request access to and copies of your personal data</p>
+                                        </div>
+                                    </div>
+                                    <div class="flex items-start">
+                                        <svg class="w-5 h-5 text-kiwi-green mr-3 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+                                        </svg>
+                                        <div>
+                                            <h4 class="font-semibold text-kiwi-dark">Correction</h4>
+                                            <p class="text-sm">Request correction of inaccurate or incomplete data</p>
+                                        </div>
+                                    </div>
+                                    <div class="flex items-start">
+                                        <svg class="w-5 h-5 text-kiwi-green mr-3 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+                                        </svg>
+                                        <div>
+                                            <h4 class="font-semibold text-kiwi-dark">Erasure</h4>
+                                            <p class="text-sm">Request deletion of your personal data</p>
+                                        </div>
+                                    </div>
+                                    <div class="flex items-start">
+                                        <svg class="w-5 h-5 text-kiwi-green mr-3 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+                                        </svg>
+                                        <div>
+                                            <h4 class="font-semibold text-kiwi-dark">Restriction & Objection</h4>
+                                            <p class="text-sm">Request restriction or object to processing of your data</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="bg-kiwi-light p-4 rounded-lg mt-4">
+                                    <p class="text-sm">To exercise any of these rights, please contact us at <strong>hello@ninekiwi.com</strong>. We will respond to your request within 30 days, in accordance with applicable laws.</p>
+                                </div>
+                            </section>
+
+                            <section id="data-retention" class="policy-section mb-8">
+                                <h2 class="text-2xl font-heading font-bold text-kiwi-dark mb-4">9. Data Retention</h2>
+                                <p class="mb-4">We retain personal data only for as long as necessary to fulfill the purposes outlined in this policy, unless a longer retention period is required or permitted by law.</p>
+                                
+                                <ul class="list-disc list-inside space-y-2">
+                                    <li><strong>Account Data:</strong> Retained while your account is active and for 3 years after deactivation for legal and business purposes</li>
+                                    <li><strong>Payment Records:</strong> Retained for 7 years to comply with financial regulations</li>
+                                    <li><strong>Project Data:</strong> Retained for the duration of the project plus 5 years for reference and legal requirements</li>
+                                    <li><strong>Communication Data:</strong> Retained for 3 years to provide customer support and improve services</li>
+                                </ul>
+                            </section>
+
+                            <section id="international-transfers" class="policy-section mb-8">
+                                <h2 class="text-2xl font-heading font-bold text-kiwi-dark mb-4">10. International Data Transfers</h2>
+                                <p>NineKiwi operates globally, and your information may be transferred to and processed in countries other than your country of residence. These countries may have different data protection laws.</p>
+                                <p class="mt-2">When we transfer data internationally, we implement appropriate safeguards such as Standard Contractual Clauses and ensure recipients provide adequate data protection.</p>
+                            </section>
+
+                            <section id="children-privacy" class="policy-section mb-8">
+                                <h2 class="text-2xl font-heading font-bold text-kiwi-dark mb-4">11. Children's Privacy</h2>
+                                <p>Our services are not directed to individuals under the age of 18. We do not knowingly collect personal information from children. If we become aware that we have collected personal information from a child without parental consent, we will take steps to remove that information.</p>
+                            </section>
+
+                            <section id="changes" class="policy-section mb-8">
+                                <h2 class="text-2xl font-heading font-bold text-kiwi-dark mb-4">12. Changes to This Policy</h2>
+                                <p>We may update this Privacy Policy from time to time to reflect changes in our practices, technology, legal requirements, or other factors. We will notify you of any material changes by posting the updated policy on our website with a new "Last Updated" date, and where required by law, we will seek your consent.</p>
+                            </section>
+
+                            <section id="contact" class="policy-section">
+                                <h2 class="text-2xl font-heading font-bold text-kiwi-dark mb-4">13. Contact Us</h2>
+                                <p class="mb-4">If you have any questions, concerns, or requests regarding this Privacy Policy or our data practices, please contact us:</p>
+                                
+                                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                    <div class="bg-kiwi-light p-4 rounded-lg">
+                                        <h4 class="font-semibold text-kiwi-dark mb-2">General Privacy Inquiries</h4>
+                                        <p class="flex items-center mb-2">
+                                            <svg class="w-5 h-5 text-kiwi-green mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                                            </svg>
+                                            <span class="font-medium">hello@ninekiwi.com</span>
+                                        </p>
+                                        <p class="text-sm">For questions about data protection and privacy rights</p>
+                                    </div>
+                                    
+                                    <div class="bg-kiwi-light p-4 rounded-lg">
+                                        <h4 class="font-semibold text-kiwi-dark mb-2">Security & Fraud Reports</h4>
+                                        <p class="flex items-center mb-2">
+                                            <svg class="w-5 h-5 text-kiwi-green mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                                            </svg>
+                                            <span class="font-medium">hello@ninekiwi.com</span>
+                                        </p>
+                                        <p class="text-sm">For reporting security issues or suspected fraud</p>
+                                    </div>
+                                </div>
+                                
+                                <div class="bg-kiwi-light p-4 rounded-lg mt-4">
+                                    <p class="flex items-center mb-2">
+                                        <svg class="w-5 h-5 text-kiwi-green mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+                                        </svg>
+                                        <span class="font-medium">NineKiwi.com</span>
+                                    </p>
+                                    <p class="text-sm ml-8"><br>India</p>
+                                </div>
+                            </section>
+                            
+                            <!-- Agreement Section -->
+                            <div class="mt-12 pt-8 border-t border-gray-200 text-center">
+                                <p class="text-kiwi-gray mb-6">By using our services, you acknowledge that you have read, understood, and agree to the practices described in this Privacy Policy.</p>
+                                <a href="https://ninekiwi.com" 
+                                   class="inline-flex items-center justify-center bg-kiwi-green hover:bg-kiwi-dark text-white font-bold py-3 px-8 rounded-full transition duration-300 transform hover:scale-105">
+                                    <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
+                                    </svg>
+                                    Return to NineKiwi
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="bg-kiwi-black text-kiwi-light py-12 md:py-16">
+        <div class="container mx-auto px-4 sm:px-6 text-center">
+            <div class="flex flex-col items-center gap-6 md:gap-8">
+                <a href="https://ninekiwi.com" class="flex items-center space-x-2 sm:space-x-3">
+                    <img src="logo.png" alt="NineKiwi Logo" class="h-8 w-8 sm:h-10 sm:w-10">
+                    <span class="text-xl sm:text-2xl font-heading font-bold text-white">nine<span class="text-kiwi-green">kiwi</span></span>
+                </a>
+                
+                <div class="flex flex-wrap justify-center gap-x-4 sm:gap-x-6 gap-y-2">
+                    <a href="mailto:hello@ninekiwi.com" class="hover:text-kiwi-green transition text-sm sm:text-base">Contact</a>
+                    <a href="https://ninekiwi.com" class="hover:text-kiwi-green transition text-sm sm:text-base">Main Site</a>
+                    <a href="/terms.html" class="hover:text-kiwi-green transition text-sm sm:text-base">Terms</a>
+                    <a href="/payments.html" class="hover:text-kiwi-green transition text-sm sm:text-base">Payments</a>
+                </div>
+
+                <div class="text-center text-xs sm:text-sm">
+                    <p class="text-kiwi-tan">© 2025 NineKiwi. All rights reserved.</p>
+                    <p class="text-kiwi-gray mt-2">
+                        Enterprise-grade security for your construction projects
+                    </p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const mobileMenuToggle = document.getElementById('mobile-menu-toggle');
+            const mobileMenuClose = document.getElementById('mobile-menu-close');
+            const mobileMenu = document.getElementById('mobile-menu');
+            
+            if (mobileMenuToggle && mobileMenu) {
+                mobileMenuToggle.addEventListener('click', () => {
+                    mobileMenu.classList.add('active');
+                    document.body.style.overflow = 'hidden';
+                });
+                
+                mobileMenuClose.addEventListener('click', () => {
+                    mobileMenu.classList.remove('active');
+                    document.body.style.overflow = 'auto';
+                });
+                
+                const mobileMenuLinks = mobileMenu.querySelectorAll('a');
+                mobileMenuLinks.forEach(link => {
+                    link.addEventListener('click', () => {
+                        mobileMenu.classList.remove('active');
+                        document.body.style.overflow = 'auto';
+                    });
+                });
+            }
+            
+            // Smooth scrolling for anchor links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const targetId = this.getAttribute('href');
+                    if(targetId === '#') return;
+                    
+                    const targetElement = document.querySelector(targetId);
+                    if(targetElement) {
+                        window.scrollTo({
+                            top: targetElement.offsetTop - 100,
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
+            
+            // Intersection Observer for animations
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('animate-fade-in-up');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.1 });
+
+            document.querySelectorAll('.animated-element').forEach(el => {
+                observer.observe(el);
+            });
+        });
+    </script>
+
+</body>
+</html>
