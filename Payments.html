@@ -1,123 +1,185 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Ninekiwi Payments</title>
-  <!-- Tailwind CDN -->
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          colors: {
-            'kiwi-green': '#78C850',
-            'kiwi-dark': '#3E5C2F',
-            'kiwi-light': '#F0F5EC',
-          }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="NineKiwi Payments - Secure payment processing for construction projects">
+    <title>NineKiwi - Secure Payments</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'kiwi-green': '#78C850',
+                        'kiwi-dark': '#3E5C2F',
+                        'kiwi-light': '#F0F5EC',
+                        'kiwi-gray': '#4A5568',
+                        'kiwi-black': '#1A202C',
+                    },
+                    fontFamily: {
+                        'heading': ['Space Grotesk', 'sans-serif'],
+                        'body': ['Inter', 'sans-serif'],
+                    },
+                    animation: {
+                        'fade-in-up': 'fadeInUp 0.8s ease-out forwards',
+                    },
+                    keyframes: {
+                        fadeInUp: {
+                            '0%': { opacity: '0', transform: 'translateY(20px)' },
+                            '100%': { opacity: '1', transform: 'translateY(0)' },
+                        }
+                    }
+                }
+            }
         }
-      }
-    }
-  </script>
+    </script>
+
+    <style>
+        .payment-card { transition: transform 0.3s ease, box-shadow 0.3s ease; }
+        .payment-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+        .kiwi-shape {
+            position: absolute;
+            width: 200px;
+            height: 200px;
+            border-radius: 40% 60% 60% 40% / 60% 30% 70% 40%;
+            background: linear-gradient(135deg, rgba(120, 200, 80, 0.1) 0%, rgba(62, 92, 47, 0.15) 100%);
+            z-index: 0;
+            filter: blur(10px);
+        }
+    </style>
 </head>
-<body class="bg-gradient-to-br from-kiwi-light via-white to-kiwi-light text-kiwi-dark min-h-screen flex flex-col font-sans">
 
-  <!-- Header -->
-  <header class="w-full bg-white/80 backdrop-blur sticky top-0 z-10 border-b border-kiwi-light">
-    <div class="max-w-6xl mx-auto flex justify-between items-center px-6 py-4">
-      <a href="https://ninekiwi.com" class="text-2xl font-extrabold tracking-wide text-kiwi-green hover:text-kiwi-dark transition">
-        NINEKIWI 𝒫𝒶𝓎𝓂𝑒𝓃𝓉𝓈
-      </a>
-      <nav>
-        <a href="https://ninekiwi.com" target="_blank"
-           class="px-4 py-2 rounded-lg bg-gradient-to-r from-kiwi-green to-kiwi-dark hover:from-kiwi-dark hover:to-kiwi-green text-white transition font-semibold">
-          Visit Main Site
-        </a>
-      </nav>
-    </div>
-  </header>
+<body class="bg-kiwi-light font-body text-kiwi-gray overflow-x-hidden">
 
-  <!-- Main Content -->
-  <main class="flex-grow flex items-center justify-center px-4">
-    <div class="bg-white/80 backdrop-blur-md shadow-xl rounded-2xl p-8 max-w-md w-full text-center border border-kiwi-light">
-      <h1 class="text-3xl font-extrabold mb-4 text-kiwi-green tracking-wide uppercase">Ninekiwi Payments</h1>
-      <p class="mb-6 text-kiwi-dark/70">Enter the amount you want to pay or choose a quick option:</p>
+    <div class="kiwi-shape -top-20 -left-20"></div>
+    <div class="kiwi-shape bottom-10 right-10 rotate-45 w-40 h-40"></div>
 
-      <!-- Custom Amount Input -->
-      <input type="number" id="amountInput" placeholder="Enter amount"
-        class="p-3 rounded-lg text-kiwi-dark w-full text-center mb-4 focus:outline-none focus:ring-2 focus:ring-kiwi-green" />
+    <header class="relative z-20">
+        <nav class="container mx-auto px-4 sm:px-6 py-4 sm:py-5 flex justify-between items-center">
+            <a href="https://ninekiwi.com" class="flex items-center space-x-2">
+                <img src="logo.png" alt="NineKiwi Logo" class="h-10 w-10">
+                <span class="text-2xl font-heading font-bold text-kiwi-dark">nine<span class="text-kiwi-green">kiwi</span></span>
+            </a>
+            <a href="https://ninekiwi.com" class="border-2 border-kiwi-green text-kiwi-green hover:bg-kiwi-green hover:text-white font-bold py-2 px-6 rounded-full transition duration-300">
+                Back to Main Site
+            </a>
+        </nav>
+    </header>
 
-      <!-- Quick Amount Buttons -->
-      <div class="flex gap-3 mb-6 justify-center">
-        <button class="bg-gradient-to-r from-kiwi-green to-kiwi-dark hover:from-kiwi-dark hover:to-kiwi-green px-4 py-2 rounded-lg font-semibold text-white" onclick="setAmount(9)">9</button>
-        <button class="bg-gradient-to-r from-kiwi-green to-kiwi-dark hover:from-kiwi-dark hover:to-kiwi-green px-4 py-2 rounded-lg font-semibold text-white" onclick="setAmount(99)">99</button>
-        <button class="bg-gradient-to-r from-kiwi-green to-kiwi-dark hover:from-kiwi-dark hover:to-kiwi-green px-4 py-2 rounded-lg font-semibold text-white" onclick="setAmount(999)">999</button>
-      </div>
+    <main class="py-12 md:py-20">
+        <div class="container mx-auto px-4 sm:px-6">
+            <div class="max-w-2xl mx-auto">
+                <div class="text-center mb-12">
+                    <h1 class="text-3xl md:text-4xl font-heading font-bold text-kiwi-dark mb-3">Secure Payment Processing</h1>
+                    <p class="text-lg text-kiwi-gray">Complete your transaction securely with Razorpay.</p>
+                </div>
 
-      <!-- Currency Selector -->
-      <select id="currencySelect"
-        class="p-3 rounded-lg text-kiwi-dark mb-6 w-full focus:outline-none focus:ring-2 focus:ring-kiwi-green">
-        <option value="INR">₹ INR</option>
-        <option value="USD">$ USD</option>
-      </select>
+                <div class="payment-card bg-white rounded-xl p-8 shadow-lg border border-gray-200">
+                    <form id="payment-form" class="space-y-6">
+                        <!-- Personal Details -->
+                        <div>
+                            <label for="name" class="block text-sm font-medium text-kiwi-gray mb-1">Full Name</label>
+                            <input type="text" id="name" name="name" required 
+                                class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-kiwi-green transition" 
+                                placeholder="Enter your full name">
+                        </div>
 
-      <!-- Pay Button -->
-      <button id="payBtn"
-        class="w-full bg-gradient-to-r from-kiwi-green to-kiwi-dark hover:from-kiwi-dark hover:to-kiwi-green px-6 py-3 rounded-lg font-bold text-lg tracking-wide transition text-white">
-        PAY NOW
-      </button>
-    </div>
-  </main>
+                        <div>
+                            <label for="email" class="block text-sm font-medium text-kiwi-gray mb-1">Email Address</label>
+                            <input type="email" id="email" name="email" required 
+                                class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-kiwi-green transition" 
+                                placeholder="your.email@example.com">
+                        </div>
 
-  <!-- Footer -->
-  <footer class="bg-white/80 backdrop-blur py-6 text-center text-kiwi-dark/70 text-sm border-t border-kiwi-light">
-    <p>© <span id="year"></span> Ninekiwi. All rights reserved.</p>
-    <p>
-      <a href="https://ninekiwi.com" target="_blank" class="text-kiwi-green hover:text-kiwi-dark font-semibold">Visit ninekiwi.com</a>
-    </p>
-  </footer>
+                        <div>
+                            <label for="phone" class="block text-sm font-medium text-kiwi-gray mb-1">Phone Number</label>
+                            <input type="tel" id="phone" name="phone" required 
+                                class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-kiwi-green transition" 
+                                placeholder="+91 98765 43210">
+                        </div>
 
-  <!-- Razorpay Script -->
-  <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
-  <script>
-    function setAmount(val) {
-      document.getElementById("amountInput").value = val;
-    }
+                        <div>
+                            <label for="amount" class="block text-sm font-medium text-kiwi-gray mb-1">Amount (INR)</label>
+                            <input type="number" id="amount" name="amount" min="1" required 
+                                class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-kiwi-green transition" 
+                                placeholder="Enter amount">
+                        </div>
 
-    document.getElementById("payBtn").onclick = function () {
-      const amount = document.getElementById("amountInput").value;
-      const currency = document.getElementById("currencySelect").value;
+                        <div>
+                            <label for="description" class="block text-sm font-medium text-kiwi-gray mb-1">Payment Description</label>
+                            <input type="text" id="description" name="description"
+                                class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-kiwi-green transition"
+                                placeholder="What is this payment for?">
+                        </div>
 
-      if (!amount || amount <= 0) {
-        alert("Please enter a valid amount.");
-        return;
-      }
+                        <!-- Submit -->
+                        <button type="submit" id="pay-btn"
+                            class="w-full bg-kiwi-green hover:bg-kiwi-dark text-white font-bold py-4 px-6 rounded-lg transition duration-300 transform hover:scale-[1.02] text-lg">
+                            Proceed to Payment
+                        </button>
+                    </form>
+                </div>
 
-      var options = {
-        key: "rzp_live_RPI96kSeZwCSrB", // Replace with your Razorpay Key ID
-        amount: amount * 100,
-        currency: currency,
-        name: "Ninekiwi Payments",
-        description: "Custom Payment",
-        handler: function (response){
-          alert("Payment successful! Payment ID: " + response.razorpay_payment_id);
-        },
-        prefill: {
-          name: "Customer Name",
-          email: "customer@example.com",
-          contact: "9876543210"
-        },
-        theme: {
-          color: "#78C850"
-        }
-      };
+                <div class="mt-8 text-center text-sm text-kiwi-gray">
+                    <p>Secure payment processing powered by <span class="text-kiwi-green font-medium">Razorpay</span>.</p>
+                </div>
+            </div>
+        </div>
+    </main>
 
-      var rzp1 = new Razorpay(options);
-      rzp1.open();
-    }
+    <footer class="bg-kiwi-black text-kiwi-light py-8 mt-16">
+        <div class="text-center">
+            <p class="text-kiwi-tan text-sm">© 2025 NineKiwi. All rights reserved.</p>
+        </div>
+    </footer>
 
-    // Auto-update footer year
-    document.getElementById("year").textContent = new Date().getFullYear();
-  </script>
+    <!-- Razorpay Script -->
+    <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const form = document.getElementById("payment-form");
+
+            form.addEventListener("submit", (e) => {
+                e.preventDefault();
+
+                const data = Object.fromEntries(new FormData(form).entries());
+
+                if (!data.name || !data.email || !data.phone || !data.amount || data.amount <= 0) {
+                    alert("Please fill in all required fields correctly.");
+                    return;
+                }
+
+                const options = {
+                    key: "rzp_live_RPI96kSeZwCSrB",
+                    amount: data.amount * 100, // paise
+                    currency: "INR",
+                    name: "NineKiwi Payments",
+                    description: data.description || "Payment for NineKiwi Services",
+                    handler: function (response) {
+                        alert("Payment successful! ID: " + response.razorpay_payment_id);
+                        form.reset();
+                    },
+                    prefill: {
+                        name: data.name,
+                        email: data.email,
+                        contact: data.phone,
+                    },
+                    theme: { color: "#78C850" },
+                };
+
+                const rzp = new Razorpay(options);
+                rzp.open();
+            });
+        });
+    </script>
 </body>
 </html>
