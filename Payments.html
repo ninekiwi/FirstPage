@@ -5,11 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="NineKiwi Payments - Secure payment processing for construction projects">
     <title>NineKiwi - Secure Payments</title>
-
+    
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+    
     <script src="https://cdn.tailwindcss.com"></script>
+    
     <link rel="icon" href="favicon.ico" type="image/x-icon">
-
+    
     <script>
         tailwind.config = {
             theme: {
@@ -18,6 +20,8 @@
                         'kiwi-green': '#78C850',
                         'kiwi-dark': '#3E5C2F',
                         'kiwi-light': '#F0F5EC',
+                        'kiwi-brown': '#8C6239',
+                        'kiwi-tan': '#D9C6A3',
                         'kiwi-gray': '#4A5568',
                         'kiwi-black': '#1A202C',
                     },
@@ -38,7 +42,7 @@
             }
         }
     </script>
-
+    
     <style>
         .payment-card { transition: transform 0.3s ease, box-shadow 0.3s ease; }
         .payment-card:hover {
@@ -54,6 +58,20 @@
             z-index: 0;
             filter: blur(10px);
         }
+        .hero-pattern {
+            background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%233E5C2F' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+        }
+        .mobile-menu {
+            transition: all 0.3s ease;
+            transform: translateY(-100%);
+            opacity: 0;
+            visibility: hidden;
+        }
+        .mobile-menu.active { transform: translateY(0); opacity: 1; visibility: visible; }
+        @media (max-width: 768px) {
+            .kiwi-shape { width: 150px; height: 150px; }
+            .kiwi-shape.bottom-10.right-10 { bottom: 5%; right: 5%; }
+        }
     </style>
 </head>
 
@@ -64,122 +82,264 @@
 
     <header class="relative z-20">
         <nav class="container mx-auto px-4 sm:px-6 py-4 sm:py-5 flex justify-between items-center">
-            <a href="https://ninekiwi.com" class="flex items-center space-x-2">
-                <img src="logo.png" alt="NineKiwi Logo" class="h-10 w-10">
-                <span class="text-2xl font-heading font-bold text-kiwi-dark">nine<span class="text-kiwi-green">kiwi</span></span>
+            <a href="https://ninekiwi.com" class="flex items-center space-x-2 sm:space-x-3">
+                <img src="logo.png" alt="NineKiwi Logo" class="h-8 w-8 sm:h-10 sm:w-10 md:h-12 md:w-12">
+                <span class="text-xl sm:text-2xl font-heading font-bold text-kiwi-dark">nine<span class="text-kiwi-green">kiwi</span></span>
             </a>
-            <a href="https://ninekiwi.com" class="border-2 border-kiwi-green text-kiwi-green hover:bg-kiwi-green hover:text-white font-bold py-2 px-6 rounded-full transition duration-300">
-                Back to Main Site
-            </a>
+            
+            <!-- Desktop Navigation -->
+            <div class="hidden md:flex items-center space-x-4">
+                <a href="https://ninekiwi.com" class="border-2 border-kiwi-green text-kiwi-green hover:bg-kiwi-green hover:text-white font-bold py-2 px-4 sm:px-6 rounded-full transition duration-300 text-sm sm:text-base">
+                    Back to Main Site
+                </a>
+            </div>
+            
+            <!-- Mobile Navigation Toggle -->
+            <div class="md:hidden flex items-center space-x-2">
+                <button id="mobile-menu-toggle" class="text-kiwi-dark focus:outline-none">
+                    <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                    </svg>
+                </button>
+            </div>
         </nav>
+        
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="mobile-menu fixed inset-0 bg-white z-30 pt-20 px-6 pb-8 md:hidden">
+            <div class="flex flex-col space-y-6">
+                <a href="https://ninekiwi.com" class="border-2 border-kiwi-green text-kiwi-green hover:bg-kiwi-green hover:text-white font-bold py-3 px-6 rounded-full transition duration-300 text-center">
+                    Back to Main Site
+                </a>
+            </div>
+            <button id="mobile-menu-close" class="absolute top-6 right-6 text-kiwi-dark">
+                <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                </svg>
+            </button>
+        </div>
     </header>
 
     <main class="py-12 md:py-20">
         <div class="container mx-auto px-4 sm:px-6">
-            <div class="max-w-2xl mx-auto">
-                <div class="text-center mb-12">
-                    <h1 class="text-3xl md:text-4xl font-heading font-bold text-kiwi-dark mb-3">Secure Payment Processing</h1>
-                    <p class="text-lg text-kiwi-gray">Complete your transaction securely with Razorpay.</p>
+            <div class="max-w-3xl mx-auto">
+                <div class="text-center mb-12 md:mb-16 animated-element">
+                    <h1 class="text-2xl sm:text-3xl md:text-4xl font-heading font-bold text-kiwi-dark mb-4">
+                        Secure Payment Processing
+                    </h1>
+                    <p class="text-base sm:text-lg md:text-xl text-kiwi-gray max-w-2xl mx-auto">
+                        Complete your transaction securely with our trusted payment gateway.
+                    </p>
                 </div>
-
-                <div class="payment-card bg-white rounded-xl p-8 shadow-lg border border-gray-200">
+                
+                <div class="payment-card bg-white rounded-xl md:rounded-2xl p-6 md:p-8 shadow-lg border border-gray-200 animated-element">
                     <form id="payment-form" class="space-y-6">
-                        <!-- Personal Details -->
-                        <div>
-                            <label for="name" class="block text-sm font-medium text-kiwi-gray mb-1">Full Name</label>
-                            <input type="text" id="name" name="name" required 
-                                class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-kiwi-green transition" 
-                                placeholder="Enter your full name">
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <!-- Personal Details -->
+                            <div class="space-y-4">
+                                <h3 class="text-lg font-bold text-kiwi-dark mb-4">Personal Details</h3>
+                                
+                                <div>
+                                    <label for="name" class="block text-sm font-medium text-kiwi-gray mb-1">Full Name</label>
+                                    <input type="text" id="name" name="name" required 
+                                        class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-kiwi-green focus:border-transparent transition duration-300"
+                                        placeholder="Enter your full name">
+                                </div>
+                                
+                                <div>
+                                    <label for="email" class="block text-sm font-medium text-kiwi-gray mb-1">Email Address</label>
+                                    <input type="email" id="email" name="email" required 
+                                        class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-kiwi-green focus:border-transparent transition duration-300"
+                                        placeholder="your.email@example.com">
+                                </div>
+                                
+                                <div>
+                                    <label for="phone" class="block text-sm font-medium text-kiwi-gray mb-1">Phone Number</label>
+                                    <input type="tel" id="phone" name="phone" required 
+                                        class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-kiwi-green focus:border-transparent transition duration-300"
+                                        placeholder="+1 (555) 123-4567">
+                                </div>
+                            </div>
+                            
+                            <!-- Payment Details -->
+                            <div class="space-y-4">
+                                <h3 class="text-lg font-bold text-kiwi-dark mb-4">Payment Details</h3>
+                                
+                                <div>
+                                    <label for="amount" class="block text-sm font-medium text-kiwi-gray mb-1">Payment Amount</label>
+                                    <input type="number" id="amount" name="amount" min="1" required 
+                                        class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-kiwi-green focus:border-transparent transition duration-300"
+                                        placeholder="Enter amount">
+                                </div>
+                                
+                                <div>
+                                    <label for="currency" class="block text-sm font-medium text-kiwi-gray mb-1">Currency</label>
+                                    <select id="currency" name="currency" 
+                                        class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-kiwi-green focus:border-transparent transition duration-300">
+                                        <option value="INR">Indian Rupee (₹)</option>
+                                        <option value="USD">US Dollar ($)</option>
+                                        <option value="EUR">Euro (€)</option>
+                                        <option value="GBP">British Pound (£)</option>
+                                    </select>
+                                </div>
+                                
+                                <div>
+                                    <label for="description" class="block text-sm font-medium text-kiwi-gray mb-1">Payment Description</label>
+                                    <input type="text" id="description" name="description" 
+                                        class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-kiwi-green focus:border-transparent transition duration-300"
+                                        placeholder="What is this payment for?">
+                                </div>
+                            </div>
                         </div>
-
-                        <div>
-                            <label for="email" class="block text-sm font-medium text-kiwi-gray mb-1">Email Address</label>
-                            <input type="email" id="email" name="email" required 
-                                class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-kiwi-green transition" 
-                                placeholder="your.email@example.com">
+                        
+                        <!-- Terms and Conditions -->
+                        <div class="flex items-start space-x-3">
+                            <input type="checkbox" id="terms" name="terms" required 
+                                class="mt-1 rounded focus:ring-kiwi-green text-kiwi-green">
+                            <label for="terms" class="text-sm text-kiwi-gray">
+                                I agree to the <a href="#" class="text-kiwi-green hover:text-kiwi-dark font-medium">Terms and Conditions</a> and authorize NineKiwi to process this payment.
+                            </label>
                         </div>
-
-                        <div>
-                            <label for="phone" class="block text-sm font-medium text-kiwi-gray mb-1">Phone Number</label>
-                            <input type="tel" id="phone" name="phone" required 
-                                class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-kiwi-green transition" 
-                                placeholder="+91 98765 43210">
-                        </div>
-
-                        <div>
-                            <label for="amount" class="block text-sm font-medium text-kiwi-gray mb-1">Amount (INR)</label>
-                            <input type="number" id="amount" name="amount" min="1" required 
-                                class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-kiwi-green transition" 
-                                placeholder="Enter amount">
-                        </div>
-
-                        <div>
-                            <label for="description" class="block text-sm font-medium text-kiwi-gray mb-1">Payment Description</label>
-                            <input type="text" id="description" name="description"
-                                class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-kiwi-green transition"
-                                placeholder="What is this payment for?">
-                        </div>
-
-                        <!-- Submit -->
-                        <button type="submit" id="pay-btn"
+                        
+                        <!-- Submit Button -->
+                        <button type="submit" id="pay-btn" 
                             class="w-full bg-kiwi-green hover:bg-kiwi-dark text-white font-bold py-4 px-6 rounded-lg transition duration-300 transform hover:scale-[1.02] text-lg">
                             Proceed to Payment
                         </button>
                     </form>
                 </div>
-
-                <div class="mt-8 text-center text-sm text-kiwi-gray">
-                    <p>Secure payment processing powered by <span class="text-kiwi-green font-medium">Razorpay</span>.</p>
+                
+                <!-- Security Assurance -->
+                <div class="mt-8 text-center animated-element" style="animation-delay: 0.2s;">
+                    <div class="flex flex-wrap justify-center gap-6 text-sm text-kiwi-gray">
+                        <div class="flex items-center space-x-2">
+                            <svg class="h-5 w-5 text-kiwi-green" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+                            </svg>
+                            <span>Secure Payment Processing</span>
+                        </div>
+                        <div class="flex items-center space-x-2">
+                            <svg class="h-5 w-5 text-kiwi-green" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
+                            </svg>
+                            <span>Your Data is Protected</span>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </main>
 
-    <footer class="bg-kiwi-black text-kiwi-light py-8 mt-16">
-        <div class="text-center">
-            <p class="text-kiwi-tan text-sm">© 2025 NineKiwi. All rights reserved.</p>
+    <footer class="bg-kiwi-black text-kiwi-light py-12 md:py-16">
+        <div class="container mx-auto px-4 sm:px-6 text-center">
+            <div class="flex flex-col items-center gap-6 md:gap-8">
+                <a href="https://ninekiwi.com" class="flex items-center space-x-2 sm:space-x-3">
+                    <img src="logo.png" alt="NineKiwi Logo" class="h-8 w-8 sm:h-10 sm:w-10">
+                    <span class="text-xl sm:text-2xl font-heading font-bold text-white">nine<span class="text-kiwi-green">kiwi</span></span>
+                </a>
+                
+                <div class="flex flex-wrap justify-center gap-x-4 sm:gap-x-6 gap-y-2">
+                    <a href="mailto:hello@ninekiwi.com" class="hover:text-kiwi-green transition text-sm sm:text-base">Contact</a>
+                    <a href="https://ninekiwi.com" class="hover:text-kiwi-green transition text-sm sm:text-base">Main Site</a>
+                </div>
+
+                <div class="text-center text-xs sm:text-sm">
+                    <p class="text-kiwi-tan">© 2025 NineKiwi. All rights reserved.</p>
+                    <p class="text-kiwi-gray mt-2">
+                        Secure payment processing powered by Razorpay
+                    </p>
+                </div>
+            </div>
         </div>
     </footer>
 
     <!-- Razorpay Script -->
     <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
-
+    
     <script>
         document.addEventListener("DOMContentLoaded", () => {
-            const form = document.getElementById("payment-form");
+            const mobileMenuToggle = document.getElementById('mobile-menu-toggle');
+            const mobileMenuClose = document.getElementById('mobile-menu-close');
+            const mobileMenu = document.getElementById('mobile-menu');
+            
+            if (mobileMenuToggle && mobileMenu) {
+                mobileMenuToggle.addEventListener('click', () => {
+                    mobileMenu.classList.add('active');
+                    document.body.style.overflow = 'hidden';
+                });
+                
+                mobileMenuClose.addEventListener('click', () => {
+                    mobileMenu.classList.remove('active');
+                    document.body.style.overflow = 'auto';
+                });
+                
+                const mobileMenuLinks = mobileMenu.querySelectorAll('a');
+                mobileMenuLinks.forEach(link => {
+                    link.addEventListener('click', () => {
+                        mobileMenu.classList.remove('active');
+                        document.body.style.overflow = 'auto';
+                    });
+                });
+            }
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('animate-fade-in-up');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.1 });
 
-            form.addEventListener("submit", (e) => {
+            document.querySelectorAll('.animated-element').forEach(el => {
+                observer.observe(el);
+            });
+            
+            // Payment form submission
+            const paymentForm = document.getElementById('payment-form');
+            paymentForm.addEventListener('submit', function(e) {
                 e.preventDefault();
-
-                const data = Object.fromEntries(new FormData(form).entries());
-
-                if (!data.name || !data.email || !data.phone || !data.amount || data.amount <= 0) {
-                    alert("Please fill in all required fields correctly.");
+                
+                // Get form values
+                const name = document.getElementById('name').value;
+                const email = document.getElementById('email').value;
+                const phone = document.getElementById('phone').value;
+                const amount = document.getElementById('amount').value;
+                const currency = document.getElementById('currency').value;
+                const description = document.getElementById('description').value;
+                
+                // Validate form
+                if (!name || !email || !phone || !amount || amount <= 0) {
+                    alert("Please fill in all required fields with valid information.");
                     return;
                 }
-
-                const options = {
-                    key: "rzp_live_RPI96kSeZwCSrB",
-                    amount: data.amount * 100, // paise
-                    currency: "INR",
+                
+                // Initialize Razorpay
+                var options = {
+                    key: "rzp_live_RPI96kSeZwCSrB", // Replace with your Razorpay Key ID
+                    amount: amount * 100, // Amount in paise
+                    currency: currency,
                     name: "NineKiwi Payments",
-                    description: data.description || "Payment for NineKiwi Services",
-                    handler: function (response) {
-                        alert("Payment successful! ID: " + response.razorpay_payment_id);
-                        form.reset();
+                    description: description || "Payment for NineKiwi Services",
+                    handler: function (response){
+                        alert("Payment successful! Payment ID: " + response.razorpay_payment_id);
+                        // You can redirect to a success page or reset the form here
+                        paymentForm.reset();
                     },
                     prefill: {
-                        name: data.name,
-                        email: data.email,
-                        contact: data.phone,
+                        name: name,
+                        email: email,
+                        contact: phone
                     },
-                    theme: { color: "#78C850" },
+                    theme: {
+                        color: "#78C850"
+                    }
                 };
-
-                const rzp = new Razorpay(options);
-                rzp.open();
+                
+                var rzp1 = new Razorpay(options);
+                rzp1.open();
             });
         });
     </script>
+
 </body>
 </html>
